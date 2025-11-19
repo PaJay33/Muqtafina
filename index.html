@@ -406,63 +406,76 @@
                             </div>
                         </div>
 
-                        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4 animate-fade-in">
-                            {t.hero.title}
-                        </h1>
-                        <p className="text-2xl md:text-3xl font-arabic bg-gradient-to-r from-green-700 via-emerald-600 to-green-700 bg-clip-text text-transparent mb-6 animate-fade-in-delay-1">
-                            {t.hero.subtitle}
-                        </p>
-                        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-delay-2">
-                            {t.hero.description}
-                        </p>
+                        {/* Title and Subtitle - Elegant Typography */}
+                        <div className="mb-12 animate-fade-in" style={{animationDelay: '0.3s'}}>
+                            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+                                {t.hero.title}
+                            </h1>
+                            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-green-700 to-transparent mx-auto mb-6"></div>
+                            <p className="text-xl md:text-2xl font-arabic text-green-800 mb-6">
+                                {t.hero.subtitle}
+                            </p>
+                            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                                {t.hero.description}
+                            </p>
+                        </div>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-3">
-                            <button className="group px-8 py-4 bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center gap-2 relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <span className="relative z-10">{t.hero.cta}</span>
+                        {/* CTA Buttons - More Professional */}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-in" style={{animationDelay: '0.4s'}}>
+                            <button className="group px-8 py-4 bg-green-700 hover:bg-green-800 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center gap-2">
+                                <span>{t.hero.cta}</span>
                                 <ChevronRight />
                             </button>
-                            <button className="group px-8 py-4 bg-white text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-2 border-gray-200 hover:border-yellow-400 relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <span className="relative z-10">{t.hero.learn}</span>
+                            <button className="px-8 py-4 bg-white text-gray-700 hover:text-green-700 rounded-lg font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all border-2 border-gray-200 hover:border-green-700">
+                                {t.hero.learn}
                             </button>
                         </div>
 
-                        {/* Spiritual Quote */}
-                        <div className="mt-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.6s'}}>
-                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-100 shadow-lg">
-                                <div className="text-2xl text-yellow-600 mb-2">✦</div>
-                                <p className="text-gray-700 italic font-arabic text-lg mb-2">
-                                    "وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ"
-                                </p>
-                                <p className="text-sm text-gray-600">
-                                    "Et invoquez abondamment Allah afin que vous réussissiez"
-                                </p>
-                                <p className="text-xs text-green-700 font-semibold mt-2">- Sourate Al-Anfal, 8:45</p>
+                        {/* Spiritual Quote - Refined Design */}
+                        <div className="max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '0.5s'}}>
+                            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-l-4 border-green-700 rounded-r-lg p-6 shadow-md">
+                                <div className="flex items-start gap-4">
+                                    <div className="text-3xl text-green-700 font-serif leading-none">"</div>
+                                    <div className="flex-1">
+                                        <p className="text-gray-800 font-arabic text-lg mb-3 leading-relaxed">
+                                            "وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ"
+                                        </p>
+                                        <p className="text-gray-700 italic mb-2">
+                                            "Et invoquez abondamment Allah afin que vous réussissiez"
+                                        </p>
+                                        <p className="text-sm text-green-800 font-semibold">— Sourate Al-Anfal, 8:45</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Spiritual badges */}
-                        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600 animate-fade-in" style={{animationDelay: '0.8s'}}>
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-green-100">
-                                <div className="text-green-500 text-lg">☪</div>
-                                <span>Tarîqah Tijaniyya</span>
+                        {/* Spiritual badges - Subtle and Professional */}
+                        <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm animate-fade-in" style={{animationDelay: '0.6s'}}>
+                            <div className="flex items-center gap-2 px-5 py-2.5 bg-white rounded-md shadow-sm border border-gray-200">
+                                <svg className="w-4 h-4 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                                <span className="font-medium text-gray-700">Tarîqah Tijaniyya</span>
                             </div>
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-yellow-100">
-                                <div className="text-yellow-500 text-lg">✦</div>
-                                <span>Enseignements Authentiques</span>
+                            <div className="flex items-center gap-2 px-5 py-2.5 bg-white rounded-md shadow-sm border border-gray-200">
+                                <svg className="w-4 h-4 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+                                </svg>
+                                <span className="font-medium text-gray-700">Enseignements Authentiques</span>
                             </div>
-                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-orange-100">
-                                <div className="text-orange-500 text-lg">📖</div>
-                                <span>Dhikr & Spiritualité</span>
+                            <div className="flex items-center gap-2 px-5 py-2.5 bg-white rounded-md shadow-sm border border-gray-200">
+                                <svg className="w-4 h-4 text-green-700" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"/>
+                                </svg>
+                                <span className="font-medium text-gray-700">Dhikr & Spiritualité</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Scroll Indicator */}
+                    {/* Scroll Indicator - Subtle */}
                     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-                        <div className="w-6 h-10 border-2 border-yellow-400/60 rounded-full flex items-start justify-center p-2">
-                            <div className="w-1 h-3 bg-yellow-400 rounded-full animate-pulse" />
+                        <div className="w-6 h-10 border-2 border-green-700/40 rounded-full flex items-start justify-center p-2">
+                            <div className="w-1 h-3 bg-green-700 rounded-full" />
                         </div>
                     </div>
                 </div>
@@ -518,44 +531,169 @@
 
             // Mission Section Component
             const MissionSection = () => (
-                <div className="py-20 bg-white">
-                    <div className="max-w-7xl mx-auto px-4">
-                        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
-                            {t.mission.title}
-                        </h2>
+                <div className="py-20 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden">
+                    {/* Motif islamique subtil en arrière-plan */}
+                    <div className="absolute inset-0 opacity-10">
+                        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="mission-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                                    <circle cx="50" cy="50" r="2" fill="#fbbf24"/>
+                                    <circle cx="0" cy="0" r="1.5" fill="#10b981"/>
+                                    <circle cx="100" cy="0" r="1.5" fill="#10b981"/>
+                                    <circle cx="0" cy="100" r="1.5" fill="#10b981"/>
+                                    <circle cx="100" cy="100" r="1.5" fill="#10b981"/>
+                                    <path d="M50,30 L60,50 L50,70 L40,50 Z" fill="#fbbf24" opacity="0.3"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#mission-pattern)"/>
+                        </svg>
+                    </div>
 
-                        <div className="grid md:grid-cols-3 gap-8">
-                            {[
-                                {
-                                    icon: <BookOpen />,
-                                    title: t.mission.faith,
-                                    description: t.mission.faithDesc,
-                                    color: 'from-yellow-400 to-orange-500'
-                                },
-                                {
-                                    icon: <Users />,
-                                    title: t.mission.community,
-                                    description: t.mission.communityDesc,
-                                    color: 'from-green-500 to-emerald-600'
-                                },
-                                {
-                                    icon: <Heart />,
-                                    title: t.mission.knowledge,
-                                    description: t.mission.knowledgeDesc,
-                                    color: 'from-blue-400 to-cyan-500'
-                                }
-                            ].map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100"
-                                >
-                                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                                        {item.icon}
+                    <div className="max-w-7xl mx-auto px-4 relative z-10">
+                        <div className="text-center mb-16">
+                            <div className="inline-block mb-6">
+                                <div className="text-6xl mb-4 animate-pulse">✨</div>
+                            </div>
+                            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent animate-fade-in">
+                                {t.mission.title}
+                            </h2>
+                            <div className="flex items-center justify-center gap-3 mb-4">
+                                <div className="h-px w-16 bg-gradient-to-r from-transparent to-orange-500"></div>
+                                <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
+                                <div className="h-px w-16 bg-gradient-to-l from-transparent to-orange-500"></div>
+                            </div>
+                        </div>
+
+                        <div className="max-w-6xl mx-auto space-y-8">
+                            {/* Représentation de la famille */}
+                            <div className="group relative">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                                <div className="relative bg-white rounded-3xl p-8 border-2 border-yellow-400/30 shadow-2xl hover:shadow-yellow-500/20 transition-all">
+                                    <div className="absolute top-4 right-4 text-yellow-400/10 text-6xl">☪</div>
+                                    <div className="flex items-start gap-6">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
+                                                <span className="text-4xl">🕌</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
+                                                {language === 'fr' ? 'Représentation de la Famille Seydil Hadj Malick Sy' : 'Representing the Family of Seydil Hadj Malick Sy'}
+                                                <span className="text-yellow-600">✦</span>
+                                            </h3>
+                                            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                                                {language === 'fr'
+                                                    ? <>Nous avons l'honneur de représenter la noble famille de <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> au Canada, sous la supervision éclairée et spirituelle de notre guide bien-aimé, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
+                                                    : <>We have the honor of representing the noble family of <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> in Canada, under the enlightened and spiritual supervision of our beloved guide, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
+                                                }
+                                            </p>
+                                            <p className="text-gray-600 text-lg leading-relaxed">
+                                                {language === 'fr'
+                                                    ? 'Cette responsabilité sacrée nous engage à perpétuer l\'héritage spirituel et les enseignements de cette illustre lignée, en maintenant vivante la tradition tijane au cœur du Canada.'
+                                                    : 'This sacred responsibility commits us to perpetuate the spiritual heritage and teachings of this illustrious lineage, keeping the Tijani tradition alive in the heart of Canada.'}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-gray-800 mb-4">{item.title}</h3>
-                                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
                                 </div>
-                            ))}
+                            </div>
+
+                            {/* Valeurs Islamiques */}
+                            <div className="group relative">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                                <div className="relative bg-white rounded-3xl p-8 border-2 border-green-400/30 shadow-2xl hover:shadow-green-500/20 transition-all">
+                                    <div className="absolute top-4 right-4 text-green-400/10 text-6xl">📖</div>
+                                    <div className="flex items-start gap-6">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
+                                                <span className="text-4xl">📖</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
+                                                {language === 'fr' ? 'Partage des Valeurs Islamiques' : 'Sharing Islamic Values'}
+                                                <span className="text-green-600">✦</span>
+                                            </h3>
+                                            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+                                                {language === 'fr'
+                                                    ? 'Notre mission s\'inscrit dans le partage et la transmission des valeurs islamiques authentiques basées sur le Coran et la Sunna du Prophète Muhammad ﷺ, selon la voie soufie tijaniyya.'
+                                                    : 'Our mission is rooted in sharing and transmitting authentic Islamic values based on the Quran and the Sunnah of Prophet Muhammad ﷺ, according to the Tijani Sufi path.'}
+                                            </p>
+                                            <div className="grid md:grid-cols-2 gap-4">
+                                                <div className="flex items-center gap-3 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 border-2 border-yellow-400/30 hover:border-yellow-500/50 hover:shadow-md transition-all">
+                                                    <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                                                    </svg>
+                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Spiritualité & Tassawuf' : 'Spirituality & Sufism'}</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-400/30 hover:border-green-500/50 hover:shadow-md transition-all">
+                                                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                    </svg>
+                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Fraternité & Solidarité' : 'Brotherhood & Solidarity'}</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border-2 border-blue-400/30 hover:border-blue-500/50 hover:shadow-md transition-all">
+                                                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                                    </svg>
+                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Éducation & Savoir' : 'Education & Knowledge'}</span>
+                                                </div>
+                                                <div className="flex items-center gap-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-400/30 hover:border-purple-500/50 hover:shadow-md transition-all">
+                                                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                                    </svg>
+                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Pratique & Dévotion' : 'Practice & Devotion'}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Tivaouane */}
+                            <div className="group relative">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                                <div className="relative bg-white rounded-3xl p-8 border-2 border-orange-400/30 shadow-2xl hover:shadow-orange-500/20 transition-all">
+                                    <div className="absolute top-4 right-4 text-orange-400/10 text-6xl">🌍</div>
+                                    <div className="flex items-start gap-6">
+                                        <div className="flex-shrink-0">
+                                            <div className="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
+                                                <span className="text-4xl">🌍</span>
+                                            </div>
+                                        </div>
+                                        <div className="flex-1">
+                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
+                                                {language === 'fr' ? 'Tivaouane - Notre Ville Spirituelle' : 'Tivaouane - Our Spiritual City'}
+                                                <span className="text-orange-600">✦</span>
+                                            </h3>
+                                            <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                                                {language === 'fr'
+                                                    ? <><span className="font-bold text-orange-700">Tivaouane</span>, située au <span className="font-bold text-orange-700">Sénégal 🇸🇳</span>, est la ville sainte qui abrite le mausolée de Seydil Hadj Malick Sy (RTA) et demeure le cœur spirituel de notre confrérie.</>
+                                                    : <><span className="font-bold text-orange-700">Tivaouane</span>, located in <span className="font-bold text-orange-700">Senegal 🇸🇳</span>, is the holy city that houses the mausoleum of Seydil Hadj Malick Sy (RTA) and remains the spiritual heart of our brotherhood.</>
+                                                }
+                                            </p>
+                                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                                                {language === 'fr'
+                                                    ? 'Cette ville bénie est le centre rayonnant de l\'enseignement tijani en Afrique de l\'Ouest, où des milliers de disciples se rassemblent chaque année pour célébrer le Gamou et renouveler leur engagement spirituel.'
+                                                    : 'This blessed city is the radiant center of Tijani teaching in West Africa, where thousands of disciples gather each year to celebrate the Gamou and renew their spiritual commitment.'}
+                                            </p>
+                                            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-orange-300">
+                                                <div className="flex items-center justify-center gap-3 mb-4">
+                                                    <span className="text-3xl">⭐</span>
+                                                    <h4 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
+                                                        {language === 'fr' ? 'Le Lien Canada - Sénégal' : 'The Canada - Senegal Connection'}
+                                                    </h4>
+                                                    <span className="text-3xl">⭐</span>
+                                                </div>
+                                                <p className="text-gray-700 text-center leading-relaxed text-lg">
+                                                    {language === 'fr'
+                                                        ? 'À travers Muqtafina Canada, nous maintenons ce lien sacré entre le Canada et Tivaouane, en perpétuant les enseignements et la baraka de Seydil Hadj Malick Sy sur le sol canadien.'
+                                                        : 'Through Muqtafina Canada, we maintain this sacred link between Canada and Tivaouane, perpetuating the teachings and baraka of Seydil Hadj Malick Sy on Canadian soil.'}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -829,304 +967,137 @@
                 );
             };
 
-            // Gallery Section Component
+            // Gallery Section Component - Auto Scrolling Carousel
             const GallerySection = () => {
-                const [lightboxOpen, setLightboxOpen] = useState(false);
-                const [currentImage, setCurrentImage] = useState(null);
-                const [filter, setFilter] = useState('all');
-                const [visibleCount, setVisibleCount] = useState(8);
+                const [currentSlide, setCurrentSlide] = useState(0);
 
                 const galleryImages = [
-                    { id: 1, src: 'images/gal1.jpg', title: 'Moments de Foi', description: 'Notre communauté en prière', category: 'Spiritualité' },
-                    { id: 2, src: 'images/gal2.jpg', title: 'Rassemblement', description: 'Ensemble dans la fraternité', category: 'Communauté' },
-                    { id: 3, src: 'images/gal3.jpg', title: 'Célébration', description: 'Moments de joie partagée', category: 'Événements' },
-                    { id: 4, src: 'images/gal4.jpg', title: 'Hadratoul Jummah', description: 'Célébration hebdomadaire', category: 'Spiritualité' },
-                    { id: 5, src: 'images/gal5.jpg', title: 'Union', description: 'Fraternité et partage', category: 'Communauté' },
-                    { id: 6, src: 'images/gal6.jpg', title: 'Dhikr Collectif', description: 'Invocation d\'Allah ensemble', category: 'Spiritualité' },
-                    { id: 7, src: 'images/gal7.jpg', title: 'Gamou', description: 'Célébration du Mawlid', category: 'Événements' },
-                    { id: 8, src: 'images/gal8.jpg', title: 'Enseignement', description: 'Transmission du savoir', category: 'Éducation' },
-                    { id: 9, src: 'images/gal9.jpg', title: 'Prière', description: 'Moments de recueillement', category: 'Spiritualité' },
-                    { id: 10, src: 'images/gal10.jpg', title: 'Communauté', description: 'Ensemble pour Allah', category: 'Communauté' },
-                    { id: 11, src: 'images/gal11.jpg', title: 'Ziyara', description: 'Visite spirituelle', category: 'Événements' },
-                    { id: 12, src: 'images/gal12.jpg', title: 'Cours de Fiqh', description: 'Apprentissage des sciences', category: 'Éducation' },
-                    { id: 13, src: 'images/gal13.jpg', title: 'Moments Sacrés', description: 'Dans la présence divine', category: 'Spiritualité' },
-                    { id: 14, src: 'images/gal14.jpg', title: 'Fraternité', description: 'Liens tissés dans la foi', category: 'Communauté' },
-                    { id: 15, src: 'images/gal15.jpg', title: 'Conférence', description: 'Partage de connaissances', category: 'Éducation' },
-                    { id: 16, src: 'images/gal16.jpg', title: 'Assemblée', description: 'Réunis dans la foi', category: 'Communauté' },
-                    { id: 17, src: 'images/gal17.jpg', title: 'Tadjidate', description: 'Renouvellement du pacte', category: 'Spiritualité' },
-                    { id: 18, src: 'images/gal18.jpg', title: 'Grand Événement', description: 'Célébration majeure', category: 'Événements' },
-                    { id: 19, src: 'images/gal19.jpg', title: 'Cercle de Dhikr', description: 'Invocation collective', category: 'Spiritualité' },
-                    { id: 20, src: 'images/gal20.jpg', title: 'Partage', description: 'Moments de convivialité', category: 'Communauté' },
-                    { id: 21, src: 'images/gal21.jpg', title: 'Cérémonie', description: 'Moments spirituels forts', category: 'Événements' },
-                    { id: 22, src: 'images/gal22.jpg', title: 'Unité', description: 'Tous ensemble dans la foi', category: 'Communauté' }
+                    { id: 1, src: 'images/gal1.jpg', title: 'Moments de Foi', description: 'Notre communauté en prière' },
+                    { id: 2, src: 'images/gal2.jpg', title: 'Rassemblement', description: 'Ensemble dans la fraternité' },
+                    { id: 3, src: 'images/gal3.jpg', title: 'Célébration', description: 'Moments de joie partagée' },
+                    { id: 4, src: 'images/gal4.jpg', title: 'Hadratoul Jummah', description: 'Célébration hebdomadaire' },
+                    { id: 5, src: 'images/gal5.jpg', title: 'Union', description: 'Fraternité et partage' },
+                    { id: 6, src: 'images/gal6.jpg', title: 'Dhikr Collectif', description: 'Invocation d\'Allah ensemble' },
+                    { id: 7, src: 'images/gal7.jpg', title: 'Gamou', description: 'Célébration du Mawlid' },
+                    { id: 8, src: 'images/gal8.jpg', title: 'Enseignement', description: 'Transmission du savoir' },
+                    { id: 9, src: 'images/gal9.jpg', title: 'Prière', description: 'Moments de recueillement' },
+                    { id: 10, src: 'images/gal10.jpg', title: 'Communauté', description: 'Ensemble pour Allah' },
+                    { id: 11, src: 'images/gal11.jpg', title: 'Ziyara', description: 'Visite spirituelle' },
+                    { id: 12, src: 'images/gal12.jpg', title: 'Cours de Fiqh', description: 'Apprentissage des sciences' },
+                    { id: 13, src: 'images/gal13.jpg', title: 'Moments Sacrés', description: 'Dans la présence divine' },
+                    { id: 14, src: 'images/gal14.jpg', title: 'Fraternité', description: 'Liens tissés dans la foi' },
+                    { id: 15, src: 'images/gal15.jpg', title: 'Conférence', description: 'Partage de connaissances' },
+                    { id: 16, src: 'images/gal16.jpg', title: 'Assemblée', description: 'Réunis dans la foi' },
+                    { id: 17, src: 'images/gal17.jpg', title: 'Tadjidate', description: 'Renouvellement du pacte' },
+                    { id: 18, src: 'images/gal18.jpg', title: 'Grand Événement', description: 'Célébration majeure' },
+                    { id: 19, src: 'images/gal19.jpg', title: 'Cercle de Dhikr', description: 'Invocation collective' },
+                    { id: 20, src: 'images/gal20.jpg', title: 'Partage', description: 'Moments de convivialité' },
+                    { id: 21, src: 'images/gal21.jpg', title: 'Cérémonie', description: 'Moments spirituels forts' },
+                    { id: 22, src: 'images/gal22.jpg', title: 'Unité', description: 'Tous ensemble dans la foi' }
                 ];
 
-                const openLightbox = (image) => {
-                    setCurrentImage(image);
-                    setLightboxOpen(true);
+                // Auto-scroll effect
+                useEffect(() => {
+                    const interval = setInterval(() => {
+                        setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+                    }, 4000); // Change image every 4 seconds
+
+                    return () => clearInterval(interval);
+                }, []);
+
+                const nextSlide = () => {
+                    setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
                 };
 
-                const closeLightbox = () => {
-                    setLightboxOpen(false);
-                    setCurrentImage(null);
+                const prevSlide = () => {
+                    setCurrentSlide((prev) => (prev - 1 + galleryImages.length) % galleryImages.length);
                 };
 
-                const nextImage = () => {
-                    const currentIndex = galleryImages.findIndex(img => img.id === currentImage.id);
-                    const nextIndex = (currentIndex + 1) % galleryImages.length;
-                    setCurrentImage(galleryImages[nextIndex]);
-                };
-
-                const prevImage = () => {
-                    const currentIndex = galleryImages.findIndex(img => img.id === currentImage.id);
-                    const prevIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-                    setCurrentImage(galleryImages[prevIndex]);
-                };
-
-                const categories = ['all', 'Spiritualité', 'Communauté', 'Événements', 'Éducation'];
-                const filteredImages = filter === 'all'
-                    ? galleryImages
-                    : galleryImages.filter(img => img.category === filter);
-
-                const visibleImages = filteredImages.slice(0, visibleCount);
-                const hasMore = visibleCount < filteredImages.length;
-
-                const loadMore = () => {
-                    setVisibleCount(prev => prev + 8);
-                };
-
-                const showLess = () => {
-                    setVisibleCount(8);
-                    window.scrollTo({ top: document.getElementById('gallery-section').offsetTop - 100, behavior: 'smooth' });
+                const goToSlide = (index) => {
+                    setCurrentSlide(index);
                 };
 
                 return (
-                    <>
-                        <div id="gallery-section" className="py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
-                            {/* Decorative background elements */}
-                            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
-                                <div className="absolute top-20 left-10 text-9xl text-yellow-500">✦</div>
-                                <div className="absolute bottom-20 right-20 text-9xl text-green-500">☪</div>
-                                <div className="absolute top-1/2 left-1/3 text-7xl text-orange-400">📸</div>
-                            </div>
-
-                            <div className="max-w-7xl mx-auto px-4 relative z-10">
-                                {/* Header */}
-                                <div className="text-center mb-12">
-                                    <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-6 shadow-2xl animate-pulse">
-                                        <span className="text-4xl">📸</span>
-                                    </div>
-                                    <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent mb-4 animate-fade-in">
-                                        Galerie Photos
-                                    </h2>
-                                    <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-2 leading-relaxed">
-                                        Nos moments de foi, de fraternité et de spiritualité en images
-                                    </p>
-                                    <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
-                                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                        <span>
-                                            {visibleImages.length} / {filteredImages.length} {filteredImages.length === 1 ? 'photo' : 'photos'}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Filter Buttons */}
-                                <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-                                    {categories.map((cat) => (
-                                        <button
-                                            key={cat}
-                                            onClick={() => {
-                                                setFilter(cat);
-                                                setVisibleCount(8);
-                                            }}
-                                            className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg ${
-                                                filter === cat
-                                                    ? 'bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 text-white shadow-xl scale-105'
-                                                    : 'bg-white text-gray-700 hover:bg-gray-50 border-2 border-gray-200 hover:border-yellow-400'
-                                            }`}
-                                        >
-                                            {cat === 'all' ? '✨ Tout voir' : cat}
-                                            {filter === cat && (
-                                                <span className="ml-2 inline-flex items-center justify-center w-6 h-6 bg-white/30 rounded-full text-xs">
-                                                    {cat === 'all' ? galleryImages.length : galleryImages.filter(img => img.category === cat).length}
-                                                </span>
-                                            )}
-                                        </button>
-                                    ))}
-                                </div>
-
-                                {/* Gallery Grid */}
-                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                                    {visibleImages.map((image, index) => (
-                                        <div
-                                            key={image.id}
-                                            onClick={() => openLightbox(image)}
-                                            style={{ animationDelay: `${index * 0.05}s` }}
-                                            className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 cursor-pointer border-2 border-transparent hover:border-yellow-400 animate-fade-in"
-                                        >
-                                            {/* Image Container */}
-                                            <div className="aspect-square overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 relative">
-                                                <img
-                                                    src={image.src}
-                                                    alt={image.title}
-                                                    className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
-                                                    loading="lazy"
-                                                />
-
-                                                {/* Gradient overlay always visible */}
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-0 transition-opacity duration-300"></div>
-                                            </div>
-
-                                            {/* Info Badge - Always visible at bottom */}
-                                            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 via-black/70 to-transparent group-hover:opacity-0 transition-opacity duration-300">
-                                                <div className="inline-block px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold rounded-full mb-2 shadow-lg">
-                                                    {image.category}
-                                                </div>
-                                                <h3 className="text-white font-bold text-base">{image.title}</h3>
-                                            </div>
-
-                                            {/* Hover Overlay - Full details */}
-                                            <div className="absolute inset-0 bg-gradient-to-t from-yellow-600 via-orange-500 to-transparent opacity-0 group-hover:opacity-95 transition-all duration-500 flex flex-col justify-end p-5">
-                                                <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                                                    {/* Category badge with icon */}
-                                                    <div className="flex items-center gap-2 mb-3">
-                                                        <div className="px-4 py-1.5 bg-white text-orange-600 text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
-                                                            <span>✦</span>
-                                                            <span>{image.category}</span>
-                                                        </div>
-                                                    </div>
-
-                                                    {/* Title */}
-                                                    <h3 className="text-white font-bold text-xl mb-2 drop-shadow-lg">
-                                                        {image.title}
-                                                    </h3>
-
-                                                    {/* Description */}
-                                                    <p className="text-white/90 text-sm mb-4 drop-shadow-md">
-                                                        {image.description}
-                                                    </p>
-
-                                                    {/* View button */}
-                                                    <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                        </svg>
-                                                        <span>Cliquez pour agrandir</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {/* Corner accent */}
-                                            <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                                                <div className="absolute top-0 right-0 w-0 h-0 border-t-[3rem] border-r-[3rem] border-t-yellow-400 border-r-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                                                <div className="absolute top-2 right-2 text-white text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                                    #{image.id}
-                                                </div>
-                                            </div>
-
-                                            {/* Floating icon */}
-                                            <div className="absolute top-3 left-3 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 shadow-xl">
-                                                <svg className="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                {/* Empty state */}
-                                {filteredImages.length === 0 && (
-                                    <div className="text-center py-20">
-                                        <div className="text-8xl mb-6 opacity-20">📸</div>
-                                        <h3 className="text-2xl font-bold text-gray-600 mb-2">Aucune photo trouvée</h3>
-                                        <p className="text-gray-500">Essayez un autre filtre</p>
-                                    </div>
-                                )}
-
-                                {/* Load More / Show Less Buttons */}
-                                {filteredImages.length > 0 && (
-                                    <div className="mt-12 flex flex-col items-center gap-4">
-                                        {hasMore && (
-                                            <button
-                                                onClick={loadMore}
-                                                className="group px-8 py-4 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center gap-3"
-                                            >
-                                                <span>Voir plus de photos</span>
-                                                <svg className="w-6 h-6 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
-                                                </svg>
-                                                <span className="px-3 py-1 bg-white/30 rounded-full text-sm">
-                                                    +{Math.min(8, filteredImages.length - visibleCount)}
-                                                </span>
-                                            </button>
-                                        )}
-
-                                        {visibleCount > 8 && (
-                                            <button
-                                                onClick={showLess}
-                                                className="px-6 py-3 bg-white text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-gray-200 hover:border-yellow-400 flex items-center gap-2"
-                                            >
-                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
-                                                </svg>
-                                                <span>Voir moins</span>
-                                            </button>
-                                        )}
-
-                                        {/* Progress bar */}
-                                        <div className="w-full max-w-md mt-4">
-                                            <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
-                                                <span>Photos affichées</span>
-                                                <span className="font-bold">{visibleImages.length} / {filteredImages.length}</span>
-                                            </div>
-                                            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                                                <div
-                                                    className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full transition-all duration-500"
-                                                    style={{ width: `${(visibleImages.length / filteredImages.length) * 100}%` }}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
+                    <div id="gallery-section" className="py-20 bg-gradient-to-br from-slate-50 via-gray-50 to-stone-50 relative overflow-hidden">
+                        {/* Decorative background elements */}
+                        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+                            <div className="absolute top-20 left-10 text-9xl text-yellow-500">✦</div>
+                            <div className="absolute bottom-20 right-20 text-9xl text-green-500">☪</div>
+                            <div className="absolute top-1/2 left-1/3 text-7xl text-orange-400">📸</div>
                         </div>
 
-                        {/* Lightbox Modal - Enhanced */}
-                        {lightboxOpen && currentImage && (
-                            <div
-                                className="fixed inset-0 z-50 bg-black/97 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
-                                onClick={closeLightbox}
-                            >
-                                {/* Top bar */}
-                                <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/80 to-transparent p-6 z-20">
-                                    <div className="max-w-7xl mx-auto flex items-center justify-between">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                                                <span className="text-xl">📸</span>
-                                            </div>
-                                            <div>
-                                                <h4 className="text-white font-bold">Galerie Muqtafina</h4>
-                                                <p className="text-gray-400 text-sm">{currentImage.category}</p>
-                                            </div>
-                                        </div>
+                        <div className="max-w-7xl mx-auto px-4 relative z-10">
+                            {/* Header */}
+                            <div className="text-center mb-12">
+                                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-6 shadow-2xl animate-pulse">
+                                    <span className="text-4xl">📸</span>
+                                </div>
+                                <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent mb-4 animate-fade-in">
+                                    Galerie Photos
+                                </h2>
+                                <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-2 leading-relaxed">
+                                    Nos moments de foi, de fraternité et de spiritualité en images
+                                </p>
+                                <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                    <span>Défilement automatique</span>
+                                </div>
+                            </div>
 
-                                        {/* Close button */}
-                                        <button
-                                            onClick={closeLightbox}
-                                            className="w-12 h-12 bg-white/10 hover:bg-red-500 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 hover:rotate-90"
+                            {/* Carousel Container */}
+                            <div className="relative max-w-5xl mx-auto">
+                                {/* Main Image Display */}
+                                <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black group">
+                                    {galleryImages.map((image, index) => (
+                                        <div
+                                            key={image.id}
+                                            className={`absolute inset-0 transition-opacity duration-1000 ${
+                                                index === currentSlide ? 'opacity-100' : 'opacity-0'
+                                            }`}
                                         >
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
+                                            <img
+                                                src={image.src}
+                                                alt={image.title}
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                            />
+
+                                            {/* Gradient Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+
+                                            {/* Image Info */}
+                                            <div className="absolute bottom-0 left-0 right-0 p-8">
+                                                <div className="inline-block px-3 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold rounded-full mb-3 shadow-lg">
+                                                    ✦ Galerie
+                                                </div>
+                                                <h3 className="text-white text-3xl font-bold mb-2 drop-shadow-lg">
+                                                    {image.title}
+                                                </h3>
+                                                <p className="text-white/90 text-lg drop-shadow-md">
+                                                    {image.description}
+                                                </p>
+                                            </div>
+
+                                            {/* Image Counter */}
+                                            <div className="absolute top-6 right-6 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                                                <span className="text-white text-sm font-semibold">
+                                                    {index + 1} / {galleryImages.length}
+                                                </span>
+                                            </div>
+
+                                            {/* Corner decorations on hover */}
+                                            <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            <div className="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            <div className="absolute bottom-0 left-0 w-20 h-20 border-b-4 border-l-4 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-yellow-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                        </div>
+                                    ))}
                                 </div>
 
-                                {/* Navigation buttons */}
+                                {/* Navigation Buttons */}
                                 <button
-                                    onClick={(e) => { e.stopPropagation(); prevImage(); }}
-                                    className="absolute left-4 md:left-8 w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 rounded-full flex items-center justify-center text-white transition-all z-20 transform hover:scale-110 shadow-2xl"
+                                    onClick={prevSlide}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 rounded-full flex items-center justify-center text-white transition-all shadow-2xl transform hover:scale-110 z-10"
+                                    aria-label="Image précédente"
                                 >
                                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" />
@@ -1134,92 +1105,33 @@
                                 </button>
 
                                 <button
-                                    onClick={(e) => { e.stopPropagation(); nextImage(); }}
-                                    className="absolute right-4 md:right-8 w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 rounded-full flex items-center justify-center text-white transition-all z-20 transform hover:scale-110 shadow-2xl"
+                                    onClick={nextSlide}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 rounded-full flex items-center justify-center text-white transition-all shadow-2xl transform hover:scale-110 z-10"
+                                    aria-label="Image suivante"
                                 >
                                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </button>
 
-                                {/* Image container */}
-                                <div
-                                    className="relative max-w-6xl max-h-[85vh] w-full animate-scale-in"
-                                    onClick={(e) => e.stopPropagation()}
-                                >
-                                    {/* Main image with frame effect */}
-                                    <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                                        <img
-                                            src={currentImage.src}
-                                            alt={currentImage.title}
-                                            className="w-full h-full object-contain bg-black/50"
+                                {/* Dots Indicator - With gradient hover effect */}
+                                <div className="flex items-center justify-center gap-2 mt-8 flex-wrap">
+                                    {galleryImages.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => goToSlide(index)}
+                                            className={`transition-all duration-300 rounded-full ${
+                                                index === currentSlide
+                                                    ? 'w-8 h-3 bg-gradient-to-r from-yellow-500 to-orange-500 shadow-lg'
+                                                    : 'w-3 h-3 bg-gray-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-400 hover:scale-125'
+                                            }`}
+                                            aria-label={`Aller à l'image ${index + 1}`}
                                         />
-
-                                        {/* Decorative corners */}
-                                        <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-yellow-400"></div>
-                                        <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-yellow-400"></div>
-                                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-yellow-400"></div>
-                                        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-yellow-400"></div>
-                                    </div>
-
-                                    {/* Image info card */}
-                                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/90 to-transparent p-8 rounded-b-2xl">
-                                        <div className="flex items-start justify-between gap-4">
-                                            <div className="flex-1">
-                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs font-bold rounded-full mb-3 shadow-lg">
-                                                    <span>✦</span>
-                                                    <span>{currentImage.category}</span>
-                                                </div>
-                                                <h3 className="text-white font-bold text-3xl mb-2 drop-shadow-lg">{currentImage.title}</h3>
-                                                <p className="text-gray-300 text-lg drop-shadow-md">{currentImage.description}</p>
-                                            </div>
-
-                                            {/* Image number badge */}
-                                            <div className="bg-white/10 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/20">
-                                                <div className="text-yellow-400 text-sm font-bold">Photo</div>
-                                                <div className="text-white text-2xl font-bold">
-                                                    {galleryImages.findIndex(img => img.id === currentImage.id) + 1}
-                                                    <span className="text-gray-400 text-lg">/{galleryImages.length}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Bottom controls */}
-                                <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-4 z-20">
-                                    {/* Progress indicator */}
-                                    <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 flex items-center gap-3">
-                                        <div className="flex gap-1">
-                                            {[...Array(Math.min(galleryImages.length, 8))].map((_, i) => {
-                                                const currentIndex = galleryImages.findIndex(img => img.id === currentImage.id);
-                                                const isActive = i === currentIndex % 8;
-                                                return (
-                                                    <div
-                                                        key={i}
-                                                        className={`w-2 h-2 rounded-full transition-all ${
-                                                            isActive ? 'bg-yellow-400 w-8' : 'bg-white/30'
-                                                        }`}
-                                                    />
-                                                );
-                                            })}
-                                        </div>
-                                        <div className="w-px h-4 bg-white/20"></div>
-                                        <span className="text-white text-sm font-semibold">
-                                            {galleryImages.findIndex(img => img.id === currentImage.id) + 1} / {galleryImages.length}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Keyboard hint */}
-                                <div className="absolute bottom-6 right-6 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-xs flex items-center gap-2 opacity-50">
-                                    <kbd className="px-2 py-1 bg-white/20 rounded">←</kbd>
-                                    <kbd className="px-2 py-1 bg-white/20 rounded">→</kbd>
-                                    <span>pour naviguer</span>
+                                    ))}
                                 </div>
                             </div>
-                        )}
-                    </>
+                        </div>
+                    </div>
                 );
             };
 
@@ -1264,34 +1176,64 @@
                             <div className="lg:col-span-2">
                                 <div className="relative group">
                                     {/* Glow effect */}
-                                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+                                    <div className="absolute -inset-1 bg-gradient-to-br from-green-700/20 via-emerald-700/20 to-teal-700/20 rounded-xl blur-xl"></div>
 
-                                    <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100">
-                                        {/* Banner */}
-                                        <div className="bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 p-8 text-white relative overflow-hidden">
-                                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
-                                            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
+                                    <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+                                        {/* Image Header */}
+                                        <div className="relative h-64 md:h-80 overflow-hidden bg-gray-100">
+                                            <img
+                                                src="images/maison.jpeg"
+                                                alt="Complexe Seydil Hadj Malick Sy"
+                                                className="w-full h-full object-cover"
+                                            />
 
-                                            <div className="relative z-10">
-                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500 text-gray-900 rounded-full font-bold text-sm mb-4 shadow-lg">
-                                                    <span>🌟</span>
+                                            {/* Gradient Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+                                            {/* Top Badge */}
+                                            <div className="absolute top-6 left-6">
+                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-700 text-white rounded-md font-bold text-sm shadow-lg">
+                                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                                    </svg>
                                                     <span>PROJET PRIORITAIRE</span>
                                                 </div>
-                                                <h3 className="text-3xl md:text-4xl font-bold mb-3">Complexe Seydil Hadj Malick Sy</h3>
-                                                <p className="text-purple-100 text-lg mb-4">Projet d'acquisition de la maison pour le siège du Dahira</p>
+                                            </div>
 
-                                                <div className="flex flex-wrap gap-3">
-                                                    <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                                                        🏠 Siège Permanent
+                                            {/* Bottom Info Overlay */}
+                                            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                                                <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                                                    Complexe Seydil Hadj Malick Sy
+                                                </h3>
+                                                <p className="text-gray-200 text-base md:text-lg mb-4">
+                                                    Projet d'acquisition de la maison pour le siège du Dahira
+                                                </p>
+
+                                                <div className="flex flex-wrap gap-2">
+                                                    <div className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-md text-xs font-semibold text-gray-900 flex items-center gap-1">
+                                                        <svg className="w-4 h-4 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                                        </svg>
+                                                        <span>Siège Permanent</span>
                                                     </div>
-                                                    <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                                                        🕌 Centre Spirituel
+                                                    <div className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-md text-xs font-semibold text-gray-900 flex items-center gap-1">
+                                                        <svg className="w-4 h-4 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                                        </svg>
+                                                        <span>Centre Spirituel</span>
                                                     </div>
-                                                    <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-semibold">
-                                                        👥 Espace Communautaire
+                                                    <div className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-md text-xs font-semibold text-gray-900 flex items-center gap-1">
+                                                        <svg className="w-4 h-4 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                                        </svg>
+                                                        <span>Espace Communautaire</span>
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            {/* Corner Accents */}
+                                            <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-green-500 opacity-60"></div>
+                                            <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-green-500 opacity-60"></div>
                                         </div>
 
                                         <div className="p-8">
@@ -1305,18 +1247,30 @@
                                                 </p>
 
                                                 <div className="grid md:grid-cols-3 gap-4 mt-6">
-                                                    <div className="bg-gradient-to-br from-purple-50 to-indigo-50 p-4 rounded-xl border border-purple-200">
-                                                        <div className="text-3xl mb-2">🕌</div>
+                                                    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-4 rounded-xl border border-emerald-200">
+                                                        <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                                                            <svg className="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                                            </svg>
+                                                        </div>
                                                         <div className="font-bold text-gray-900">Salle de Prière</div>
                                                         <div className="text-sm text-gray-600">Espace de recueillement</div>
                                                     </div>
                                                     <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-xl border border-blue-200">
-                                                        <div className="text-3xl mb-2">📚</div>
+                                                        <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                                                            <svg className="w-6 h-6 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                                            </svg>
+                                                        </div>
                                                         <div className="font-bold text-gray-900">Bibliothèque</div>
                                                         <div className="text-sm text-gray-600">Centre d'apprentissage</div>
                                                     </div>
-                                                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-200">
-                                                        <div className="text-3xl mb-2">👥</div>
+                                                    <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-4 rounded-xl border border-amber-200">
+                                                        <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-3">
+                                                            <svg className="w-6 h-6 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                                            </svg>
+                                                        </div>
                                                         <div className="font-bold text-gray-900">Salles Multi-usage</div>
                                                         <div className="text-sm text-gray-600">Événements & formations</div>
                                                     </div>
@@ -1324,8 +1278,10 @@
                                             </div>
 
                                             <a href="complexe-malick-sy.html" className="block">
-                                                <button className="w-full py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 text-white rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 group">
-                                                    <span className="text-2xl">🏠</span>
+                                                <button className="w-full py-5 bg-green-700 hover:bg-green-800 text-white rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 group">
+                                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                                    </svg>
                                                     <span>Découvrir le Projet Complet</span>
                                                     <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
