@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muqtafina Canada - Association Islamique Tijaniyya</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- React and Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-arabic {
+            font-family: 'Amiri', serif;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.1);
+            }
+        }
+
+        .animate-float {
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-fade-in-delay-1 {
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .animate-fade-in-delay-2 {
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .animate-fade-in-delay-3 {
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .bg-cream-50 {
+            background-color: #FDF6E3;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .8;
+            }
+        }
+
+        .bg-gradient-radial {
+            background: radial-gradient(circle, var(--tw-gradient-stops));
+        }
+
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(150px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(150px) rotate(-360deg);
+            }
+        }
+
+        @keyframes orbit-reverse {
+            0% {
+                transform: rotate(0deg) translateX(200px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(-360deg) translateX(200px) rotate(360deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .animate-shimmer {
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-scale-in {
+            animation: scaleIn 1s ease-out both;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 0 40px rgba(251, 191, 36, 0.1);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 60px rgba(251, 191, 36, 0.2);
+            }
+        }
+
+        .animate-glow {
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        /* Tailwind custom config */
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFA500;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF8C00;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Lucide Icons Components
+        const Calendar = () => <i data-lucide="calendar" className="w-5 h-5"></i>;
+        const Clock = () => <i data-lucide="clock" className="w-5 h-5"></i>;
+        const BookOpen = () => <i data-lucide="book-open" className="w-5 h-5"></i>;
+        const Heart = () => <i data-lucide="heart" className="w-5 h-5"></i>;
+        const Users = () => <i data-lucide="users" className="w-5 h-5"></i>;
+        const MapPin = () => <i data-lucide="map-pin" className="w-5 h-5"></i>;
+        const Menu = () => <i data-lucide="menu" className="w-6 h-6"></i>;
+        const X = () => <i data-lucide="x" className="w-6 h-6"></i>;
+        const ChevronRight = () => <i data-lucide="chevron-right" className="w-5 h-5"></i>;
+        const Globe = () => <i data-lucide="globe" className="w-4 h-4"></i>;
+        const Play = () => <i data-lucide="play" className="w-5 h-5"></i>;
+        const ImageIcon = () => <i data-lucide="image" className="w-4 h-4"></i>;
+
+        const MuqtafinaWebsite = () => {
+            const [language, setLanguage] = useState('fr');
+            const [prayerTimes, setPrayerTimes] = useState(null);
+
+            // Initialize Lucide icons after component renders
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            });
+
+            // Fetch prayer times based on Montreal location
+            useEffect(() => {
+                const fetchPrayerTimes = async () => {
+                    try {
+                        const today = new Date();
+                        const response = await fetch(
+                            `https://api.aladhan.com/v1/timings/${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}?latitude=45.5017&longitude=-73.5673&method=2`
+                        );
+                        const data = await response.json();
+                        setPrayerTimes(data.data.timings);
+                    } catch (error) {
+                        console.error('Error fetching prayer times:', error);
+                    }
+                };
+                fetchPrayerTimes();
+            }, []);
+
+            const translations = {
+                fr: {
+                    nav: {
+                        home: 'Accueil',
+                        about: 'À Propos',
+                        prayer: 'Prières',
+                        events: 'Événements',
+                        library: 'Bibliothèque',
+                        gallery: 'Galerie',
+                        blog: 'Blog',
+                        donate: 'Faire un Don',
+                        contact: 'Contact'
+                    },
+                    hero: {
+                        title: 'Muqtafina',
+                        subtitle: 'Bi Âssâril Âbâ\'i Wal Ajdad',
+                        description: 'Un mouvement communautaire canadien perpétuant l\'œuvre des vénérés patriarches et vulgarisant la Tarîqah de Seydina Cheikh Ahmad Tidjani Chérif (RTA)',
+                        cta: 'Rejoignez-nous',
+                        learn: 'En savoir plus'
+                    },
+                    prayer: {
+                        title: 'Horaires de Prière',
+                        subtitle: 'Montréal, QC',
+                        fajr: 'Fajr',
+                        dhuhr: 'Dhuhr',
+                        asr: 'Asr',
+                        maghrib: 'Maghrib',
+                        isha: 'Isha'
+                    },
+                    mission: {
+                        title: 'Notre Mission',
+                        faith: 'Foi & Spiritualité',
+                        faithDesc: 'Approfondir la compréhension et la pratique de l\'Islam selon les enseignements tijanis',
+                        community: 'Communauté Unie',
+                        communityDesc: 'Créer des liens fraternels forts entre les membres de notre daïra',
+                        knowledge: 'Savoir & Éducation',
+                        knowledgeDesc: 'Transmettre les enseignements de Seydil Hadji Malick SY (RTA)'
+                    }
+                },
+                en: {
+                    nav: {
+                        home: 'Home',
+                        about: 'About',
+                        prayer: 'Prayer',
+                        events: 'Events',
+                        library: 'Library',
+                        gallery: 'Gallery',
+                        blog: 'Blog',
+                        donate: 'Donate',
+                        contact: 'Contact'
+                    },
+                    hero: {
+                        title: 'Muqtafina',
+                        subtitle: 'Bi Âssâril Âbâ\'i Wal Ajdad',
+                        description: 'A Canadian community movement perpetuating the work of venerated patriarchs and promoting the Tarîqah of Seydina Cheikh Ahmad Tidjani Chérif (RTA)',
+                        cta: 'Join Us',
+                        learn: 'Learn More'
+                    },
+                    prayer: {
+                        title: 'Prayer Times',
+                        subtitle: 'Montreal, QC',
+                        fajr: 'Fajr',
+                        dhuhr: 'Dhuhr',
+                        asr: 'Asr',
+                        maghrib: 'Maghrib',
+                        isha: 'Isha'
+                    },
+                    mission: {
+                        title: 'Our Mission',
+                        faith: 'Faith & Spirituality',
+                        faithDesc: 'Deepening understanding and practice of Islam according to Tijani teachings',
+                        community: 'United Community',
+                        communityDesc: 'Building strong fraternal bonds among daïra members',
+                        knowledge: 'Knowledge & Education',
+                        knowledgeDesc: 'Transmitting the teachings of Seydil Hadji Malick SY (RTA)'
+                    }
+                }
+            };
+
+            const t = translations[language];
+
+            // Navigation Component
+            const Navigation = () => (
+                <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div className="flex items-center justify-between h-20">
+                            {/* Logo */}
+                            <div className="flex items-center">
+                                <img 
+                                    src="images/muq1.jpg" 
+                                    alt="Muqtafina Logo" 
+                                    className="w-14 h-14"
+                                />
+                                <div className="ml-3">
+                                    <div className="text-xl font-bold text-gray-800">Muqtafina</div>
+                                    <div className="text-xs text-green-700 font-arabic">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
+                                </div>
+                            </div>
+
+                            {/* Language Switcher */}
+                            <div className="flex items-center space-x-2">
+                                <Globe />
+                                <select
+                                    value={language}
+                                    onChange={(e) => setLanguage(e.target.value)}
+                                    className="text-sm border-2 border-gray-200 bg-white px-3 py-2 rounded-lg cursor-pointer focus:outline-none focus:border-yellow-500"
+                                >
+                                    <option value="fr">Français</option>
+                                    <option value="en">English</option>
+                                    <option value="ar">العربية</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            );
+
+            // Hero Section Component
+            const HeroSection = () => (
+                <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white pt-32">
+                    {/* Decorative Background Elements */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        {/* Gradient Orbs - Spiritual Glow */}
+                        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-yellow-200/30 to-orange-200/30 rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-green-200/20 to-emerald-200/20 rounded-full blur-3xl"></div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-yellow-100/20 to-orange-100/20 rounded-full blur-3xl"></div>
+
+                        {/* Islamic Calligraphy & Symbols */}
+                        <div className="absolute top-32 right-20 text-6xl text-yellow-300/20 font-arabic animate-float" style={{animationDuration: '15s'}}>
+                            ☪
+                        </div>
+                        <div className="absolute bottom-40 left-32 text-7xl text-green-300/15 font-arabic animate-float" style={{animationDuration: '18s', animationDelay: '2s'}}>
+                            ✦
+                        </div>
+                        <div className="absolute top-1/3 left-20 text-5xl text-orange-300/20 font-arabic animate-float" style={{animationDuration: '20s', animationDelay: '1s'}}>
+                            ☪
+                        </div>
+                        <div className="absolute top-1/4 right-32 text-4xl text-emerald-300/15 animate-float" style={{animationDuration: '12s'}}>
+                            ✦
+                        </div>
+                        <div className="absolute bottom-1/3 right-1/4 text-3xl text-yellow-400/15 font-arabic animate-float" style={{animationDuration: '16s', animationDelay: '3s'}}>
+                            ☪
+                        </div>
+
+                        {/* Arabic Calligraphy Elements */}
+                        <div className="absolute top-20 left-1/4 text-8xl text-green-200/10 font-arabic animate-float" style={{animationDuration: '25s'}}>
+                            الله
+                        </div>
+                        <div className="absolute bottom-32 right-1/3 text-7xl text-yellow-200/10 font-arabic animate-float" style={{animationDuration: '22s', animationDelay: '4s'}}>
+                            محمد
+                        </div>
+
+                        {/* Islamic Geometric Patterns */}
+                        <div className="absolute top-40 left-1/3 opacity-10">
+                            <svg width="80" height="80" className="animate-float" style={{animationDuration: '20s'}}>
+                                <polygon points="40,10 60,30 60,50 40,70 20,50 20,30" fill="none" stroke="url(#grad1)" strokeWidth="2"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style={{stopColor: '#FCD34D', stopOpacity: 0.6}} />
+                                        <stop offset="100%" style={{stopColor: '#F97316', stopOpacity: 0.6}} />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div className="absolute bottom-1/4 left-20 opacity-10">
+                            <svg width="60" height="60" className="animate-float" style={{animationDuration: '18s', animationDelay: '2s'}}>
+                                <circle cx="30" cy="30" r="25" fill="none" stroke="url(#grad2)" strokeWidth="2"/>
+                                <circle cx="30" cy="30" r="15" fill="none" stroke="url(#grad2)" strokeWidth="2"/>
+                                <defs>
+                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style={{stopColor: '#10B981', stopOpacity: 0.6}} />
+                                        <stop offset="100%" style={{stopColor: '#059669', stopOpacity: 0.6}} />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+
+                        {/* Decorative Lines with Islamic pattern */}
+                        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-200/40 to-transparent"></div>
+                        <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-200/40 to-transparent"></div>
+
+                        {/* Stars (representing spiritual light) */}
+                        <div className="absolute top-1/2 right-20 text-yellow-300/20 text-2xl animate-pulse" style={{animationDuration: '3s'}}>✨</div>
+                        <div className="absolute top-1/3 right-1/3 text-green-300/15 text-xl animate-pulse" style={{animationDuration: '4s', animationDelay: '1s'}}>✨</div>
+                        <div className="absolute bottom-1/3 left-1/4 text-orange-300/20 text-2xl animate-pulse" style={{animationDuration: '3.5s', animationDelay: '2s'}}>✨</div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+                        {/* Logo with Enhanced Design */}
+                        <div className="mx-auto mb-12 relative">
+                            {/* Glow effect behind logo */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="w-80 h-80 bg-gradient-to-br from-yellow-300/20 via-orange-300/20 to-transparent rounded-full blur-2xl animate-pulse-slow"></div>
+                            </div>
+
+                            {/* Rotating decorative ring with Islamic pattern */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 border-2 border-dashed border-yellow-300/30 rounded-full animate-spin" style={{animationDuration: '30s'}}></div>
+
+                            {/* Islamic Stars around logo */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="absolute top-[-140px] left-0 text-yellow-400/40 text-2xl animate-pulse">✦</div>
+                                <div className="absolute bottom-[-140px] left-0 text-green-400/40 text-2xl animate-pulse" style={{animationDelay: '1s'}}>✦</div>
+                                <div className="absolute top-0 left-[-140px] text-orange-400/40 text-2xl animate-pulse" style={{animationDelay: '0.5s'}}>✦</div>
+                                <div className="absolute top-0 right-[-140px] text-emerald-400/40 text-2xl animate-pulse" style={{animationDelay: '1.5s'}}>✦</div>
+                            </div>
+
+                            {/* Crescent moons at corners */}
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                <div className="absolute top-[-100px] left-[-100px] text-green-300/30 text-3xl font-arabic rotate-45">☪</div>
+                                <div className="absolute top-[-100px] right-[-100px] text-yellow-300/30 text-3xl font-arabic -rotate-45">☪</div>
+                                <div className="absolute bottom-[-100px] left-[-100px] text-orange-300/30 text-3xl font-arabic -rotate-45">☪</div>
+                                <div className="absolute bottom-[-100px] right-[-100px] text-emerald-300/30 text-3xl font-arabic rotate-45">☪</div>
+                            </div>
+
+                            {/* Logo container with shadow */}
+                            <div className="relative bg-white rounded-full p-4 shadow-2xl animate-scale-in">
+                                <img
+                                    src="images/muq1.jpg"
+                                    alt="Muqtafina Logo"
+                                    className="w-64 h-64 mx-auto rounded-full animate-glow"
+                                />
+                            </div>
+
+                            {/* Orbiting Islamic symbols */}
+                            <div className="absolute top-1/2 left-1/2 text-yellow-400 text-xl" style={{animation: 'orbit 8s linear infinite'}}>✦</div>
+                            <div className="absolute top-1/2 left-1/2 text-green-400 text-xl font-arabic" style={{animation: 'orbit-reverse 12s linear infinite'}}>☪</div>
+
+                            {/* Arabic text orbiting */}
+                            <div className="absolute top-1/2 left-1/2 text-orange-400/60 text-sm font-arabic" style={{animation: 'orbit 15s linear infinite', animationDelay: '2s'}}>الله</div>
+                        </div>
+
+                        <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4 animate-fade-in">
+                            {t.hero.title}
+                        </h1>
+                        <p className="text-2xl md:text-3xl font-arabic bg-gradient-to-r from-green-700 via-emerald-600 to-green-700 bg-clip-text text-transparent mb-6 animate-fade-in-delay-1">
+                            {t.hero.subtitle}
+                        </p>
+                        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-in-delay-2">
+                            {t.hero.description}
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-delay-3">
+                            <button className="group px-8 py-4 bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 text-white rounded-full font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center gap-2 relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <span className="relative z-10">{t.hero.cta}</span>
+                                <ChevronRight />
+                            </button>
+                            <button className="group px-8 py-4 bg-white text-gray-700 rounded-full font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-2 border-gray-200 hover:border-yellow-400 relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-r from-yellow-50 to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <span className="relative z-10">{t.hero.learn}</span>
+                            </button>
+                        </div>
+
+                        {/* Spiritual Quote */}
+                        <div className="mt-12 max-w-2xl mx-auto animate-fade-in" style={{animationDelay: '0.6s'}}>
+                            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-2 border-green-100 shadow-lg">
+                                <div className="text-2xl text-yellow-600 mb-2">✦</div>
+                                <p className="text-gray-700 italic font-arabic text-lg mb-2">
+                                    "وَاذْكُرُوا اللَّهَ كَثِيرًا لَّعَلَّكُمْ تُفْلِحُونَ"
+                                </p>
+                                <p className="text-sm text-gray-600">
+                                    "Et invoquez abondamment Allah afin que vous réussissiez"
+                                </p>
+                                <p className="text-xs text-green-700 font-semibold mt-2">- Sourate Al-Anfal, 8:45</p>
+                            </div>
+                        </div>
+
+                        {/* Spiritual badges */}
+                        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-600 animate-fade-in" style={{animationDelay: '0.8s'}}>
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-green-100">
+                                <div className="text-green-500 text-lg">☪</div>
+                                <span>Tarîqah Tijaniyya</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-yellow-100">
+                                <div className="text-yellow-500 text-lg">✦</div>
+                                <span>Enseignements Authentiques</span>
+                            </div>
+                            <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md border border-orange-100">
+                                <div className="text-orange-500 text-lg">📖</div>
+                                <span>Dhikr & Spiritualité</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Scroll Indicator */}
+                    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+                        <div className="w-6 h-10 border-2 border-yellow-400/60 rounded-full flex items-start justify-center p-2">
+                            <div className="w-1 h-3 bg-yellow-400 rounded-full animate-pulse" />
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Prayer Times Widget Component
+            const PrayerTimesWidget = () => (
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl shadow-xl p-8 border border-green-100">
+                    <div className="flex items-center justify-between mb-6">
+                        <div>
+                            <h3 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                                <Clock />
+                                {t.prayer.title}
+                            </h3>
+                            <p className="text-sm text-gray-600 mt-1 flex items-center gap-1">
+                                <MapPin />
+                                {t.prayer.subtitle}
+                            </p>
+                        </div>
+                        <div className="text-right">
+                            <div className="text-3xl font-bold text-green-700">
+                                {new Date().toLocaleDateString(language === 'fr' ? 'fr-CA' : 'en-CA', {
+                                    day: 'numeric',
+                                    month: 'short'
+                                })}
+                            </div>
+                        </div>
+                    </div>
+
+                    {prayerTimes ? (
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            {['Fajr', 'Dhuhr', 'Asr', 'Maghrib', 'Isha'].map((prayer) => {
+                                const time = prayerTimes[prayer];
+                                return (
+                                    <div
+                                        key={prayer}
+                                        className="bg-white rounded-xl p-4 text-center shadow-md hover:shadow-lg transition-shadow border border-green-50"
+                                    >
+                                        <div className="text-xs font-semibold text-gray-500 uppercase mb-2">
+                                            {prayer}
+                                        </div>
+                                        <div className="text-xl md:text-2xl font-bold text-gray-800">{time}</div>
+                                        <div className="mt-2 w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-yellow-300 to-orange-400 opacity-50" />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    ) : (
+                        <div className="text-center py-8 text-gray-500">Chargement des horaires...</div>
+                    )}
+                </div>
+            );
+
+            // Mission Section Component
+            const MissionSection = () => (
+                <div className="py-20 bg-white">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-16">
+                            {t.mission.title}
+                        </h2>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {[
+                                {
+                                    icon: <BookOpen />,
+                                    title: t.mission.faith,
+                                    description: t.mission.faithDesc,
+                                    color: 'from-yellow-400 to-orange-500'
+                                },
+                                {
+                                    icon: <Users />,
+                                    title: t.mission.community,
+                                    description: t.mission.communityDesc,
+                                    color: 'from-green-500 to-emerald-600'
+                                },
+                                {
+                                    icon: <Heart />,
+                                    title: t.mission.knowledge,
+                                    description: t.mission.knowledgeDesc,
+                                    color: 'from-blue-400 to-cyan-500'
+                                }
+                            ].map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 border border-gray-100"
+                                >
+                                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${item.color} flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                                        {item.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-gray-800 mb-4">{item.title}</h3>
+                                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Events Component
+            const EventsSection = () => {
+                const events = [
+                    {
+                        id: 1,
+                        title: 'Hadratoul Jummah',
+                        date: '2025-11-21',
+                        time: '14:00',
+                        location: 'Centre Communautaire Muqtafina',
+                        description: 'Célébration spirituelle hebdomadaire avec dhikr et enseignements',
+                        image: '🕌',
+                        category: 'Spirituel'
+                    },
+                    {
+                        id: 2,
+                        title: 'Cours de Fiqh',
+                        date: '2025-11-25',
+                        time: '19:00',
+                        location: 'En ligne via Zoom',
+                        description: 'Étude approfondie du fiqh malikite',
+                        image: '📚',
+                        category: 'Éducation'
+                    },
+                    {
+                        id: 3,
+                        title: 'Mawlid du Prophète ﷺ',
+                        date: '2025-12-05',
+                        time: '18:00',
+                        location: 'Grande Salle Muqtafina',
+                        description: 'Célébration de la naissance du Prophète Muhammad ﷺ',
+                        image: '🌙',
+                        category: 'Célébration'
+                    }
+                ];
+
+                return (
+                    <div className="py-20 bg-gray-50">
+                        <div className="max-w-7xl mx-auto px-4">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Événements à Venir</h2>
+                                <p className="text-xl text-gray-600">Rejoignez-nous pour nos activités spirituelles et communautaires</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {events.map((event) => (
+                                    <div
+                                        key={event.id}
+                                        className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-shadow border border-gray-100 group"
+                                    >
+                                        <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 h-48 flex items-center justify-center text-8xl">
+                                            {event.image}
+                                        </div>
+                                        <div className="p-6">
+                                            <div className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold mb-3">
+                                                {event.category}
+                                            </div>
+                                            <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-yellow-600 transition-colors">
+                                                {event.title}
+                                            </h3>
+                                            <p className="text-gray-600 mb-4">{event.description}</p>
+                                            <div className="space-y-2 text-sm text-gray-500">
+                                                <div className="flex items-center gap-2">
+                                                    <Calendar />
+                                                    {new Date(event.date).toLocaleDateString('fr-CA', {
+                                                        weekday: 'long',
+                                                        year: 'numeric',
+                                                        month: 'long',
+                                                        day: 'numeric'
+                                                    })}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <Clock />
+                                                    {event.time}
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <MapPin />
+                                                    {event.location}
+                                                </div>
+                                            </div>
+                                            <button className="mt-6 w-full py-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                                S'inscrire
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // Library Section Component
+            const LibrarySection = () => {
+                const scholars = [
+                    {
+                        id: 1,
+                        name: 'Seydina Cheikh Ahmad Tidjani Chérif',
+                        arabicName: 'سيدنا الشيخ أحمد التجاني',
+                        title: 'Fondateur de la Tarîqah Tijaniyya',
+                        bio: 'Le vénéré Cheikh Ahmad Tidjani (RTA) a fondé la voie spirituelle tijaniyya, caractérisée par l\'invocation d\'Allah et l\'amour du Prophète Muhammad ﷺ. Sa tariqa s\'est répandue à travers le monde musulman.',
+                        period: '1150-1230 H / 1737-1815',
+                        origin: 'Aïn Madhi, Algérie',
+                        works: [
+                            { title: 'Jawahir al-Ma\'ani', desc: 'Perles des significations' },
+                            { title: 'Risalat al-Tijaniyya', desc: 'L\'épître Tijaniyya' }
+                        ],
+                        badge: 'Pro ESBS',
+                        color: 'from-yellow-400 to-orange-500'
+                    },
+                    {
+                        id: 2,
+                        name: 'Seydil Hadji Malick SY',
+                        arabicName: 'السيد الحاج مالك سي',
+                        title: 'Grand Marabout du Sénégal',
+                        bio: 'Le grand savant Seydil Hadji Malick SY (RTA) a propagé les enseignements de la Tarîqah Tijaniyya au Sénégal et en Afrique de l\'Ouest. Il est reconnu pour sa profonde connaissance du Coran et des sciences islamiques.',
+                        period: '1273-1340 H / 1855-1922',
+                        origin: 'Gaya, Sénégal',
+                        works: [
+                            { title: 'Khilâsou Zahab', desc: 'L\'essence d\'or' },
+                            { title: 'Kifâyatou Râghibîn', desc: 'Ce qui suffit aux aspirants' }
+                        ],
+                        badge: 'Pro ESBS',
+                        color: 'from-green-500 to-emerald-600'
+                    }
+                ];
+
+                return (
+                    <div className="py-20 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
+                        {/* Decorative background */}
+                        <div className="absolute inset-0 opacity-5 pointer-events-none">
+                            <div className="absolute top-20 left-10 text-9xl text-yellow-500">📚</div>
+                            <div className="absolute bottom-20 right-10 text-9xl text-green-500">☪</div>
+                        </div>
+
+                        <div className="max-w-7xl mx-auto px-4 relative">
+                            <div className="text-center mb-16">
+                                <div className="inline-block mb-4">
+                                    <div className="text-6xl mb-4">📖</div>
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4">
+                                    Bibliothèque des Savants
+                                </h2>
+                                <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
+                                    Découvrez les enseignements de nos vénérés patriarches et leurs précieuses œuvres
+                                </p>
+                                <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-yellow-400 via-orange-400 to-orange-500 text-white rounded-full font-semibold shadow-xl">
+                                    <div className="w-3 h-3 rounded-full bg-white animate-pulse" />
+                                    <span>Contenu Pro ESBS - Authentique & Vérifié</span>
+                                    <div className="text-lg">✦</div>
+                                </div>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-10">
+                                {scholars.map((scholar) => (
+                                    <div
+                                        key={scholar.id}
+                                        className="group relative bg-white rounded-3xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border-2 border-transparent hover:border-yellow-200"
+                                    >
+                                        {/* Decorative top border */}
+                                        <div className={`h-2 bg-gradient-to-r ${scholar.color}`}></div>
+
+                                        <div className="p-8">
+                                            {/* Header with badge */}
+                                            <div className="flex items-start justify-between mb-6">
+                                                <div className="flex items-center gap-4">
+                                                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${scholar.color} flex items-center justify-center text-4xl shadow-lg group-hover:scale-110 transition-transform`}>
+                                                        📚
+                                                    </div>
+                                                    <div>
+                                                        <div className="px-4 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-md inline-flex items-center gap-2">
+                                                            <span>✦</span>
+                                                            <span>{scholar.badge}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Scholar info */}
+                                            <div className="mb-6">
+                                                <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-yellow-600 group-hover:to-orange-600 group-hover:bg-clip-text transition-all">
+                                                    {scholar.name}
+                                                </h3>
+                                                <p className="text-lg font-arabic text-green-700 mb-3">{scholar.arabicName}</p>
+                                                <p className="text-green-600 font-semibold mb-2 flex items-center gap-2">
+                                                    <span className="text-yellow-500">✦</span>
+                                                    {scholar.title}
+                                                </p>
+                                                <div className="flex flex-wrap gap-4 text-sm text-gray-500 mb-4">
+                                                    <div className="flex items-center gap-1">
+                                                        <Calendar />
+                                                        <span>{scholar.period}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <MapPin />
+                                                        <span>{scholar.origin}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Biography */}
+                                            <p className="text-gray-600 leading-relaxed mb-6 text-sm">{scholar.bio}</p>
+
+                                            {/* Works section */}
+                                            <div className="mb-6 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-5 border border-gray-100">
+                                                <h4 className="text-sm font-bold text-gray-800 mb-4 flex items-center gap-2">
+                                                    <BookOpen />
+                                                    <span>Œuvres Principales</span>
+                                                </h4>
+                                                <div className="space-y-3">
+                                                    {scholar.works.map((work, index) => (
+                                                        <div key={index} className="flex items-start gap-3 p-3 bg-white rounded-xl border border-gray-100 hover:border-yellow-300 transition-colors group/work">
+                                                            <div className="mt-1 text-yellow-500 text-lg">✦</div>
+                                                            <div className="flex-1">
+                                                                <div className="font-semibold text-gray-800 group-hover/work:text-yellow-600 transition-colors">
+                                                                    {work.title}
+                                                                </div>
+                                                                <div className="text-xs text-gray-500 mt-1">{work.desc}</div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Action buttons */}
+                                            <div className="flex gap-3">
+                                                <button className={`flex-1 py-3.5 bg-gradient-to-r ${scholar.color} text-white rounded-xl font-semibold hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2`}>
+                                                    <Play />
+                                                    <span>Explorer</span>
+                                                </button>
+                                                <button className="px-5 py-3.5 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-yellow-400 hover:text-yellow-600 transform hover:scale-105 transition-all">
+                                                    <BookOpen />
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        {/* Decorative corner accent */}
+                                        <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none">
+                                            <div className={`absolute top-4 right-4 text-6xl bg-gradient-to-br ${scholar.color} bg-clip-text text-transparent`}>
+                                                ☪
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Call to action */}
+                            <div className="mt-16 text-center">
+                                <div className="inline-block bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-100 shadow-xl">
+                                    <p className="text-gray-700 mb-4 flex items-center justify-center gap-2">
+                                        <span className="text-2xl">📚</span>
+                                        <span className="font-semibold">Plus de 50 ouvrages disponibles dans notre bibliothèque</span>
+                                    </p>
+                                    <a href="bibliotheque.html">
+                                        <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                                            Accéder à la bibliothèque complète
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // Gallery Section Component
+            const GallerySection = () => {
+                const albums = [
+                    { id: 1, title: 'Hadratoul Jummah 2024', photos: 45, cover: '🕌', date: '2024-11-15' },
+                    { id: 2, title: 'Célébration Mawlid 2024', photos: 78, cover: '🌙', date: '2024-10-20' },
+                    { id: 3, title: 'Cours de Tafsir', photos: 32, cover: '📖', date: '2024-09-10' },
+                    { id: 4, title: 'Visite de la communauté', photos: 56, cover: '👥', date: '2024-08-05' }
+                ];
+
+                return (
+                    <div className="py-20 bg-gray-50">
+                        <div className="max-w-7xl mx-auto px-4">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Galerie Photos</h2>
+                                <p className="text-xl text-gray-600">Nos moments de foi et de fraternité en images</p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {albums.map((album) => (
+                                    <div
+                                        key={album.id}
+                                        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2 cursor-pointer border border-gray-100"
+                                    >
+                                        <div className="h-48 bg-gradient-to-br from-yellow-300 via-orange-400 to-yellow-500 flex items-center justify-center text-8xl group-hover:scale-110 transition-transform">
+                                            {album.cover}
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-yellow-600 transition-colors">
+                                                {album.title}
+                                            </h3>
+                                            <div className="flex items-center justify-between text-sm text-gray-500">
+                                                <div className="flex items-center gap-1">
+                                                    <ImageIcon />
+                                                    {album.photos} photos
+                                                </div>
+                                                <div>{new Date(album.date).toLocaleDateString('fr-CA', { month: 'short', year: 'numeric' })}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
+            // Donate Section Component
+            const DonateSection = () => (
+                <div className="py-20 bg-white">
+                    <div className="max-w-4xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Faire un Don</h2>
+                            <p className="text-xl text-gray-600">Soutenez notre mission spirituelle et communautaire</p>
+                        </div>
+
+                        <div className="bg-white rounded-2xl shadow-2xl p-10 border border-green-100">
+                            <div className="text-center mb-8">
+                                <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center mb-4 shadow-lg">
+                                    <Heart />
+                                </div>
+                                <p className="text-gray-600 italic">
+                                    "L'exemple de ceux qui dépensent leurs biens dans le sentier d'Allah est semblable à une graine d'où naissent sept épis..."
+                                    <br />
+                                    <span className="text-sm font-semibold text-green-700">- Sourate Al-Baqarah, verset 261</span>
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                                {[25, 50, 100, 250].map((amount) => (
+                                    <button
+                                        key={amount}
+                                        className="py-6 px-4 border-2 border-gray-200 rounded-xl hover:border-yellow-500 hover:bg-yellow-50 transition-all font-bold text-gray-700 hover:text-yellow-600 transform hover:scale-105"
+                                    >
+                                        ${amount}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="space-y-4 mb-8">
+                                <input
+                                    type="number"
+                                    placeholder="Montant personnalisé"
+                                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:border-yellow-500 focus:outline-none text-lg"
+                                />
+                                <select className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:border-yellow-500 focus:outline-none text-lg">
+                                    <option>Type de don</option>
+                                    <option>Sadaqah</option>
+                                    <option>Zakat</option>
+                                    <option>Don général</option>
+                                    <option>Construction mosquée</option>
+                                </select>
+                                <input
+                                    type="email"
+                                    placeholder="Votre email"
+                                    className="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:border-yellow-500 focus:outline-none text-lg"
+                                />
+                            </div>
+
+                            <button className="w-full py-5 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
+                                Faire un don en toute sécurité
+                            </button>
+
+                            <p className="text-sm text-gray-500 text-center mt-6">
+                                🔒 Paiement 100% sécurisé • Reçu fiscal disponible
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Contact Section Component
+            const ContactSection = () => (
+                <div className="py-20 bg-gray-50">
+                    <div className="max-w-6xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Contactez-nous</h2>
+                            <p className="text-xl text-gray-600">Nous sommes là pour vous accompagner</p>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-8">
+                            {/* Contact Form */}
+                            <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                                <h2 className="text-2xl font-bold text-gray-800 mb-6">Envoyez-nous un message</h2>
+                                <form className="space-y-4">
+                                    <input
+                                        type="text"
+                                        placeholder="Nom complet"
+                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:outline-none"
+                                    />
+                                    <input
+                                        type="email"
+                                        placeholder="Email"
+                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:outline-none"
+                                    />
+                                    <input
+                                        type="tel"
+                                        placeholder="Téléphone"
+                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:outline-none"
+                                    />
+                                    <select className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:outline-none">
+                                        <option>Sélectionnez un sujet</option>
+                                        <option>Adhésion</option>
+                                        <option>Événements</option>
+                                        <option>Enseignements</option>
+                                        <option>Autre</option>
+                                    </select>
+                                    <textarea
+                                        rows="5"
+                                        placeholder="Votre message"
+                                        className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-yellow-500 focus:outline-none resize-none"
+                                    />
+                                    <button className="w-full py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">
+                                        Envoyer le message
+                                    </button>
+                                </form>
+                            </div>
+
+                            {/* Contact Info */}
+                            <div className="space-y-6">
+                                <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Informations de contact</h3>
+                                    <div className="space-y-4">
+                                        <div className="flex items-start gap-3">
+                                            <MapPin />
+                                            <div>
+                                                <div className="font-semibold text-gray-800">Adresse</div>
+                                                <div className="text-gray-600">Montréal, Québec, Canada</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-start gap-3">
+                                            <Clock />
+                                            <div>
+                                                <div className="font-semibold text-gray-800">Horaires d'ouverture</div>
+                                                <div className="text-gray-600">Lun - Ven: 9h00 - 18h00</div>
+                                                <div className="text-gray-600">Sam - Dim: Selon événements</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-gradient-to-br from-yellow-400 via-orange-400 to-yellow-500 rounded-2xl shadow-xl p-8 text-white">
+                                    <h3 className="text-xl font-bold mb-4">Rejoignez notre communauté</h3>
+                                    <p className="mb-6 opacity-90">
+                                        Inscrivez-vous pour recevoir nos actualités, événements et enseignements spirituels
+                                    </p>
+                                    <div className="flex gap-2">
+                                        <input
+                                            type="email"
+                                            placeholder="Votre email"
+                                            className="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none"
+                                        />
+                                        <button className="px-6 py-3 bg-white text-yellow-600 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all">
+                                            S'inscrire
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Footer Component
+            const Footer = () => (
+                <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="grid md:grid-cols-4 gap-8 mb-12">
+                            {/* Logo and Description */}
+                            <div className="md:col-span-2">
+                                <div className="flex items-center mb-4">
+                                    <img 
+                                        src="/mnt/user-data/uploads/1763533880922_image.png" 
+                                        alt="Muqtafina Logo" 
+                                        className="w-12 h-12"
+                                    />
+                                    <div className="ml-3">
+                                        <div className="text-xl font-bold">Muqtafina</div>
+                                        <div className="text-xs text-green-400 font-arabic">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
+                                    </div>
+                                </div>
+                                <p className="text-gray-400 leading-relaxed mb-4">
+                                    Un mouvement communautaire canadien perpétuant l'œuvre des vénérés patriarches et vulgarisant la Tarîqah Tijaniyya.
+                                </p>
+                            </div>
+
+                            {/* Quick Links */}
+                            <div>
+                                <h4 className="text-lg font-bold mb-4">Liens rapides</h4>
+                                <ul className="space-y-2 text-gray-400">
+                                    <li><a href="#events" className="hover:text-yellow-400 transition-colors">Événements</a></li>
+                                    <li><a href="#library" className="hover:text-yellow-400 transition-colors">Bibliothèque</a></li>
+                                    <li><a href="#donate" className="hover:text-yellow-400 transition-colors">Faire un Don</a></li>
+                                    <li><a href="#contact" className="hover:text-yellow-400 transition-colors">Contact</a></li>
+                                </ul>
+                            </div>
+
+                            {/* Contact Info */}
+                            <div>
+                                <h4 className="text-lg font-bold mb-4">Contact</h4>
+                                <ul className="space-y-2 text-gray-400">
+                                    <li className="flex items-center gap-2">
+                                        <MapPin />
+                                        Montréal, QC
+                                    </li>
+                                    <li>info@muqtafina.ca</li>
+                                    <li>+1 (514) XXX-XXXX</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        {/* Bottom Bar */}
+                        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400">
+                            <div>© 2025 Muqtafina Canada. Tous droits réservés.</div>
+                            <div className="flex items-center gap-4 mt-4 md:mt-0">
+                                <button className="hover:text-yellow-400 transition-colors">Politique de confidentialité</button>
+                                <button className="hover:text-yellow-400 transition-colors">Conditions d'utilisation</button>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            );
+
+            // Main Render - All sections on one page
+            return (
+                <div className="min-h-screen bg-white">
+                    <Navigation />
+                    
+                    {/* Hero Section */}
+                    <HeroSection />
+                    
+                    {/* Prayer Times Section */}
+                    <div className="py-20 bg-white">
+                        <div className="max-w-7xl mx-auto px-4 mb-16">
+                            <PrayerTimesWidget />
+                        </div>
+                    </div>
+                    
+                    {/* Mission Section */}
+                    <MissionSection />
+                    
+                    {/* Events Section */}
+                    <div id="events">
+                        <EventsSection />
+                    </div>
+                    
+                    {/* Library Section */}
+                    <div id="library">
+                        <LibrarySection />
+                    </div>
+                    
+                    {/* Gallery Section */}
+                    <GallerySection />
+                    
+                    {/* Donate Section */}
+                    <div id="donate">
+                        <DonateSection />
+                    </div>
+                    
+                    {/* Contact Section */}
+                    <div id="contact">
+                        <ContactSection />
+                    </div>
+                    
+                    {/* Footer */}
+                    <Footer />
+                </div>
+            );
+        };
+
+        // Render the app
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<MuqtafinaWebsite />);
+
+        // Initialize Lucide icons after initial render
+        setTimeout(() => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        }, 100);
+    </script>
+</body>
+</html>
