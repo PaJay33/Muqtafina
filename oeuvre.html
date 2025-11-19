@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'œuvre - Muqtafina Canada</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- React and Babel -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-arabic {
+            font-family: 'Amiri', serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFA500;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF8C00;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        // Lucide Icons
+        const ArrowLeft = () => <i data-lucide="arrow-left" className="w-5 h-5"></i>;
+        const BookOpen = () => <i data-lucide="book-open" className="w-5 h-5"></i>;
+        const Download = () => <i data-lucide="download" className="w-5 h-5"></i>;
+        const FileText = () => <i data-lucide="file-text" className="w-5 h-5"></i>;
+        const User = () => <i data-lucide="user" className="w-5 h-5"></i>;
+        const Calendar = () => <i data-lucide="calendar" className="w-5 h-5"></i>;
+        const Globe = () => <i data-lucide="globe" className="w-5 h-5"></i>;
+        const Tag = () => <i data-lucide="tag" className="w-5 h-5"></i>;
+        const Quote = () => <i data-lucide="quote" className="w-5 h-5"></i>;
+        const Star = () => <i data-lucide="star" className="w-5 h-5"></i>;
+
+        const OeuvreDetails = () => {
+            useEffect(() => {
+                if (window.lucide) {
+                    window.lucide.createIcons();
+                }
+            });
+
+            // Get work ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const workId = urlParams.get('id') || 'w3';
+
+            // Database complete
+            const works = {
+                w3: {
+                    id: 'w3',
+                    title: 'Khilâsou Zahab',
+                    arabicTitle: 'خلاصة الذهب',
+                    subtitle: 'L\'essence d\'or',
+                    author: 'Seydil Hadji Malick SY',
+                    authorArabic: 'السيد الحاج مالك سي',
+                    pages: 320,
+                    language: 'Arabe',
+                    category: 'Soufisme',
+                    yearWritten: '1320 H / 1902',
+                    description: 'Une œuvre magistrale qui expose les fondements de la voie tijanie et les enseignements spirituels de Seydil Hadji Malick SY. Ce livre est considéré comme l\'un des piliers de la littérature tijanie au Sénégal.',
+                    fullDescription: `Khilâsou Zahab (L'essence d'or) est une œuvre majeure de Seydil Hadji Malick SY qui présente de manière claire et accessible les principes fondamentaux de la Tarîqah Tijaniyya.
+
+                    Le livre aborde plusieurs thèmes essentiels :
+                    - Les fondements spirituels de la voie tijanie
+                    - Les méthodes du dhikr et de l'invocation
+                    - Les biographies des grands maîtres de la tariqa
+                    - Les règles de conduite du disciple (murid)
+                    - Les secrets et les lumières de la voie
+
+                    Cette œuvre est particulièrement appréciée pour sa clarté pédagogique et sa profondeur spirituelle. Elle a été largement diffusée dans toute l'Afrique de l'Ouest et demeure une référence incontournable pour les disciples de la tariqa.`,
+                    chapters: [
+                        { num: 1, title: 'Introduction et fondements', pages: '1-45' },
+                        { num: 2, title: 'La chaîne spirituelle (silsila)', pages: '46-90' },
+                        { num: 3, title: 'Les règles du dhikr', pages: '91-150' },
+                        { num: 4, title: 'Les vertus de la tariqa', pages: '151-210' },
+                        { num: 5, title: 'Biographies des maîtres', pages: '211-280' },
+                        { num: 6, title: 'Conseils spirituels', pages: '281-320' }
+                    ],
+                    themes: ['Soufisme', 'Dhikr', 'Tariqa Tijaniyya', 'Spiritualité', 'Éducation spirituelle'],
+                    quotes: [
+                        {
+                            text: 'La voie vers Allah est pavée d\'amour et de sincérité',
+                            context: 'Chapitre sur les fondements spirituels'
+                        },
+                        {
+                            text: 'Le dhikr est la nourriture de l\'âme et la lumière du cœur',
+                            context: 'Chapitre sur les règles du dhikr'
+                        }
+                    ],
+                    relatedWorks: ['Kifâyatou Râghibîn', 'Tanbîhou Ikhwân', 'Sirâtoul Mustaqim'],
+                    availability: {
+                        pdf: true,
+                        print: true,
+                        audio: false
+                    }
+                },
+                w4: {
+                    id: 'w4',
+                    title: 'Kifâyatou Râghibîn',
+                    arabicTitle: 'كفاية الراغبين',
+                    subtitle: 'Ce qui suffit aux aspirants',
+                    author: 'Seydil Hadji Malick SY',
+                    authorArabic: 'السيد الحاج مالك سي',
+                    pages: 280,
+                    language: 'Arabe',
+                    category: 'Soufisme',
+                    yearWritten: '1315 H / 1897',
+                    description: 'Un guide complet pour les aspirants sur le chemin spirituel, détaillant les étapes de la purification de l\'âme et les secrets de la voie tijanie.',
+                    fullDescription: `Kifâyatou Râghibîn est une œuvre fondamentale qui répond aux questions essentielles des chercheurs spirituels. L'auteur y explique avec précision les étapes du cheminement spirituel selon la Tarîqah Tijaniyya.
+
+                    Contenu principal :
+                    - Les conditions de l'entrée dans la tariqa
+                    - Les degrés de la purification spirituelle
+                    - Les secrets des invocations tidianes
+                    - Les miracles et prodiges des saints
+                    - La méthodologie de l'enseignement spirituel`,
+                    chapters: [
+                        { num: 1, title: 'Les conditions du disciple', pages: '1-50' },
+                        { num: 2, title: 'La purification de l\'âme', pages: '51-120' },
+                        { num: 3, title: 'Les secrets du wird', pages: '121-180' },
+                        { num: 4, title: 'Les degrés spirituels', pages: '181-240' },
+                        { num: 5, title: 'Les prodiges des saints', pages: '241-280' }
+                    ],
+                    themes: ['Purification', 'Wird', 'Sainteté', 'Cheminement spirituel'],
+                    quotes: [
+                        {
+                            text: 'L\'aspirant doit purifier son cœur avant de chercher les lumières',
+                            context: 'Chapitre sur la purification'
+                        }
+                    ],
+                    relatedWorks: ['Khilâsou Zahab', 'Tanbîhou Ikhwân'],
+                    availability: {
+                        pdf: true,
+                        print: true,
+                        audio: true
+                    }
+                }
+            };
+
+            const work = works[workId] || works.w3;
+
+            return (
+                <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
+                    {/* Header */}
+                    <header className="bg-white shadow-md sticky top-0 z-50">
+                        <div className="max-w-7xl mx-auto px-4 py-6">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-4">
+                                    <a href="bibliotheque.html" className="flex items-center gap-2 text-gray-700 hover:text-yellow-600 transition-colors">
+                                        <ArrowLeft />
+                                        <span className="font-semibold">Retour à la bibliothèque</span>
+                                    </a>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <img src="images/muq1.jpg" alt="Logo" className="w-12 h-12 rounded-full" />
+                                    <div>
+                                        <div className="font-bold text-gray-800">Muqtafina</div>
+                                        <div className="text-xs text-green-700 font-arabic">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Main Content */}
+                    <div className="max-w-7xl mx-auto px-4 py-12">
+                        <div className="grid lg:grid-cols-3 gap-8">
+                            {/* Left Column - Main Content */}
+                            <div className="lg:col-span-2 space-y-8">
+                                {/* Title Section */}
+                                <div className="bg-white rounded-3xl shadow-2xl p-8 border-t-4 border-yellow-500">
+                                    <div className="flex items-start gap-4 mb-6">
+                                        <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center text-4xl shadow-lg">
+                                            📖
+                                        </div>
+                                        <div className="flex-1">
+                                            <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-md mb-3">
+                                                Pro ESBS - Authentique
+                                            </div>
+                                            <h1 className="text-4xl font-bold text-gray-800 mb-2">{work.title}</h1>
+                                            <p className="text-2xl font-arabic text-green-700 mb-3">{work.arabicTitle}</p>
+                                            <p className="text-xl text-gray-600 italic">{work.subtitle}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Author Info */}
+                                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100 mb-6">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <User />
+                                            <span className="font-semibold text-gray-700">Auteur :</span>
+                                        </div>
+                                        <p className="text-lg font-bold text-gray-800">{work.author}</p>
+                                        <p className="font-arabic text-green-700">{work.authorArabic}</p>
+                                    </div>
+
+                                    {/* Meta Info */}
+                                    <div className="grid md:grid-cols-4 gap-4">
+                                        <div className="bg-gray-50 rounded-xl p-4 text-center">
+                                            <FileText />
+                                            <div className="mt-2 text-sm text-gray-600">Pages</div>
+                                            <div className="text-2xl font-bold text-gray-800">{work.pages}</div>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-xl p-4 text-center">
+                                            <Globe />
+                                            <div className="mt-2 text-sm text-gray-600">Langue</div>
+                                            <div className="text-lg font-bold text-gray-800">{work.language}</div>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-xl p-4 text-center">
+                                            <Tag />
+                                            <div className="mt-2 text-sm text-gray-600">Catégorie</div>
+                                            <div className="text-lg font-bold text-gray-800">{work.category}</div>
+                                        </div>
+                                        <div className="bg-gray-50 rounded-xl p-4 text-center">
+                                            <Calendar />
+                                            <div className="mt-2 text-sm text-gray-600">Année</div>
+                                            <div className="text-lg font-bold text-gray-800">{work.yearWritten}</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Description */}
+                                <div className="bg-white rounded-3xl shadow-xl p-8">
+                                    <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+                                        <BookOpen />
+                                        Description
+                                    </h2>
+                                    <p className="text-gray-600 leading-relaxed mb-6">{work.description}</p>
+                                    <div className="prose prose-lg max-w-none">
+                                        <p className="text-gray-700 leading-relaxed whitespace-pre-line">{work.fullDescription}</p>
+                                    </div>
+                                </div>
+
+                                {/* Chapters */}
+                                <div className="bg-white rounded-3xl shadow-xl p-8">
+                                    <h2 className="text-2xl font-bold text-gray-800 mb-6">Table des matières</h2>
+                                    <div className="space-y-3">
+                                        {work.chapters.map((chapter) => (
+                                            <div key={chapter.num} className="flex items-center gap-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-xl border border-gray-100 hover:border-yellow-300 transition-all">
+                                                <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center text-white font-bold shadow-md">
+                                                    {chapter.num}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <div className="font-semibold text-gray-800">{chapter.title}</div>
+                                                    <div className="text-sm text-gray-500">Pages {chapter.pages}</div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Quotes */}
+                                {work.quotes && work.quotes.length > 0 && (
+                                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl shadow-xl p-8 border-2 border-green-100">
+                                        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+                                            <Quote />
+                                            Citations marquantes
+                                        </h2>
+                                        <div className="space-y-6">
+                                            {work.quotes.map((quote, idx) => (
+                                                <div key={idx} className="bg-white rounded-2xl p-6 shadow-md">
+                                                    <div className="text-3xl text-yellow-500 mb-3">✦</div>
+                                                    <p className="text-lg text-gray-700 italic mb-3">"{quote.text}"</p>
+                                                    <p className="text-sm text-gray-500">— {quote.context}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Right Column - Sidebar */}
+                            <div className="space-y-6">
+                                {/* Download Options */}
+                                <div className="bg-white rounded-3xl shadow-xl p-6 sticky top-24">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Accéder à l'œuvre</h3>
+                                    <div className="space-y-3">
+                                        {work.availability.pdf && (
+                                            <button className="w-full py-4 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                                                <Download />
+                                                Télécharger PDF
+                                            </button>
+                                        )}
+                                        {work.availability.print && (
+                                            <button className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                                                <BookOpen />
+                                                Commander version papier
+                                            </button>
+                                        )}
+                                        {work.availability.audio && (
+                                            <button className="w-full py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center justify-center gap-2">
+                                                🎧 Écouter audio
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+
+                                {/* Themes */}
+                                <div className="bg-white rounded-3xl shadow-xl p-6">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Thèmes abordés</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {work.themes.map((theme, idx) => (
+                                            <span key={idx} className="px-4 py-2 bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 rounded-full text-sm font-semibold border border-yellow-200">
+                                                {theme}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Related Works */}
+                                <div className="bg-white rounded-3xl shadow-xl p-6">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Œuvres connexes</h3>
+                                    <div className="space-y-3">
+                                        {work.relatedWorks.map((related, idx) => (
+                                            <div key={idx} className="p-3 bg-gray-50 rounded-xl hover:bg-yellow-50 transition-colors cursor-pointer border border-gray-100 hover:border-yellow-300">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="text-yellow-500">✦</div>
+                                                    <span className="text-gray-700 font-semibold">{related}</span>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Rating */}
+                                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-3xl shadow-xl p-6 border-2 border-yellow-200">
+                                    <h3 className="text-xl font-bold text-gray-800 mb-4">Évaluation</h3>
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <div className="flex gap-1">
+                                            {[1,2,3,4,5].map(i => (
+                                                <Star key={i} className="fill-yellow-400 text-yellow-400" />
+                                            ))}
+                                        </div>
+                                        <span className="text-2xl font-bold text-gray-800">5.0</span>
+                                    </div>
+                                    <p className="text-sm text-gray-600">Basé sur 234 avis de lecteurs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Footer */}
+                    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 mt-20">
+                        <div className="max-w-7xl mx-auto px-4 text-center">
+                            <div className="text-4xl mb-4">📖</div>
+                            <h3 className="text-2xl font-bold mb-2">Bibliothèque Muqtafina</h3>
+                            <p className="text-gray-400 mb-6">Préservant l'héritage spirituel des grands savants</p>
+                            <div className="border-t border-gray-700 pt-6">
+                                <p className="text-sm text-gray-400">© 2025 Muqtafina Canada. Tous droits réservés.</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<OeuvreDetails />);
+
+        setTimeout(() => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        }, 100);
+    </script>
+</body>
+</html>

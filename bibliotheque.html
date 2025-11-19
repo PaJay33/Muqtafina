@@ -117,91 +117,209 @@
                     period: '1150-1230 H / 1737-1815',
                     origin: 'Aïn Madhi, Algérie',
                     works: [
-                        { title: 'Jawahir al-Ma\'ani', desc: 'Perles des significations', pages: 450 },
-                        { title: 'Risalat al-Tijaniyya', desc: 'L\'épître Tijaniyya', pages: 120 }
+                        { id: 'w1', title: 'Jawahir al-Ma\'ani', desc: 'Perles des significations', pages: 450, language: 'Arabe', category: 'Théologie' },
+                        { id: 'w2', title: 'Risalat al-Tijaniyya', desc: 'L\'épître Tijaniyya', pages: 120, language: 'Arabe', category: 'Doctrine' }
                     ],
                     color: 'from-yellow-400 to-orange-500'
                 },
+                // MAME MAODO (El Hadji Malick Sy)
                 {
                     id: 2,
-                    name: 'Seydil Hadji Malick SY',
-                    arabicName: 'السيد الحاج مالك سي',
-                    title: 'Grand Marabout du Sénégal',
-                    category: 'fils',
-                    relation: 'Fils de Mame Maodo',
-                    bio: 'Le grand savant Seydil Hadji Malick SY (RTA) a propagé les enseignements de la Tarîqah Tijaniyya au Sénégal et en Afrique de l\'Ouest. Il est reconnu pour sa profonde connaissance du Coran et des sciences islamiques.',
+                    name: 'El Hadji Malick Sy (Mame Maodo)',
+                    arabicName: 'الحاج مالك سي',
+                    title: 'Grand Marabout du Sénégal et Propagateur de la Tijâniyya',
+                    category: 'fondateur',
+                    bio: 'El Hadji Malick Sy (RTA), surnommé Mame Maodo, est l\'un des plus grands savants et marabouts du Sénégal. Il a propagé la Tarîqah Tijaniyya en Afrique de l\'Ouest et fondé la ville sainte de Tivaouane. Poète, érudit et guide spirituel, il a laissé un héritage immense.',
                     period: '1273-1340 H / 1855-1922',
                     origin: 'Gaya, Sénégal',
                     works: [
-                        { title: 'Khilâsou Zahab', desc: 'L\'essence d\'or', pages: 320 },
-                        { title: 'Kifâyatou Râghibîn', desc: 'Ce qui suffit aux aspirants', pages: 280 },
-                        { title: 'Tanbîhou Ikhwân', desc: 'Avertissement aux frères', pages: 150 }
+                        { id: 'w3', title: 'Khilâsou Zahab', desc: 'L\'essence d\'or - Son œuvre majeure', pages: 320, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w4', title: 'Kifâyatou Râghibîn', desc: 'Ce qui suffit aux aspirants', pages: 280, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w31', title: 'Tanbîhou Ikhwân', desc: 'Avertissement aux frères', pages: 150, language: 'Arabe', category: 'Morale' },
+                        { id: 'w32', title: 'Sirâtoul Mustaqim', desc: 'Le chemin droit', pages: 200, language: 'Arabe', category: 'Spiritualité' },
+                        { id: 'w33', title: 'Fawâkilou Anwâr', desc: 'Les fruits des lumières', pages: 180, language: 'Arabe', category: 'Poésie religieuse' }
+                    ],
+                    color: 'from-emerald-500 to-green-600'
+                },
+                // FILS DE MAME MAODO (El Hadji Malick Sy)
+                {
+                    id: 3,
+                    name: 'Sidy Ahmet Sy',
+                    arabicName: 'سيدي أحمد سي',
+                    title: 'Fils aîné de Maodo',
+                    category: 'fils',
+                    relation: 'Fils aîné de Mame Maodo',
+                    bio: 'Fils aîné de Maodo, né à Saint-Louis. Il a été très religieux, soufi, et a pratiqué beaucoup la prière et les wirds. Il était connu pour sa grande piété et sa dévotion.',
+                    period: '1880-1925',
+                    origin: 'Saint-Louis, Sénégal',
+                    works: [
+                        { id: 'w3', title: 'Recueil de prières', desc: 'Compilation de prières et invocations', pages: 150, language: 'Arabe', category: 'Spiritualité' },
+                        { id: 'w4', title: 'Wirds et litanies', desc: 'Recueil de wirds quotidiens', pages: 100, language: 'Arabe', category: 'Dhikr' }
                     ],
                     color: 'from-green-500 to-emerald-600'
                 },
                 {
                     id: 3,
-                    name: 'Serigne Babacar SY',
+                    name: 'Serigne Babacar Sy',
                     arabicName: 'الشيخ ابوبكر سي',
-                    title: 'Guide Spirituel de Tivaouane',
+                    title: 'Khalife Général des Tijânias (1922-1957)',
                     category: 'fils',
                     relation: 'Fils de Mame Maodo',
-                    bio: 'Serigne Babacar SY (RTA) a succédé à son père comme khalife de la famille Sy. Il a consolidé l\'enseignement de la tariqa Tijaniyya et développé Tivaouane comme centre spirituel majeur.',
-                    period: '1321-1378 H / 1903-1957',
+                    bio: 'Né en 1885, il succède à son père comme Khalife général des Tijânias en 1922 jusqu\'en 1957. Il a écrit des poèmes et des ouvrages religieux sur le Prophète Muhammad ﷺ et sur la Tijâniyya.',
+                    period: '1303-1376 H / 1885-1957',
                     origin: 'Tivaouane, Sénégal',
                     works: [
-                        { title: 'Majmou\'atoul Fawaid', desc: 'Recueil de bienfaits', pages: 200 },
-                        { title: 'Sirâtou Moustakim', desc: 'La voie droite', pages: 180 }
+                        { id: 'w5', title: 'Poèmes sur le Prophète', desc: 'Recueil de poésie en l\'honneur du Prophète', pages: 200, language: 'Arabe', category: 'Poésie' },
+                        { id: 'w6', title: 'La Voie Tijâniyya', desc: 'Enseignements sur la tariqa', pages: 180, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w7', title: 'Majmou\'atoul Fawaid', desc: 'Recueil de bienfaits', pages: 220, language: 'Arabe', category: 'Enseignement' }
                     ],
                     color: 'from-blue-500 to-cyan-600'
                 },
                 {
                     id: 4,
-                    name: 'Serigne Abdoul Aziz SY Dabakh',
-                    arabicName: 'الشيخ عبد العزيز سي الدباغ',
-                    title: 'Khalife Général des Tidianes',
-                    category: 'petit-fils',
-                    relation: 'Petit-fils de Mame Maodo',
-                    bio: 'Serigne Abdoul Aziz SY Dabakh (RTA), surnommé "Al Makhtoum", était connu pour sa grande érudition et sa piété. Il a contribué à l\'expansion de la Tariqa Tijaniyya au Sénégal.',
-                    period: '1322-1417 H / 1904-1997',
-                    origin: 'Tivaouane, Sénégal',
-                    works: [
-                        { title: 'Nafhatoul Anwar', desc: 'Souffle des lumières', pages: 250 },
-                        { title: 'Hidâyatoul Muridin', desc: 'Guide des aspirants', pages: 300 }
-                    ],
-                    color: 'from-purple-500 to-pink-600'
-                },
-                {
-                    id: 5,
-                    name: 'Serigne Mansour SY',
+                    name: 'Serigne Mansour Sy',
                     arabicName: 'الشيخ منصور سي',
-                    title: 'Érudit et Poète Religieux',
-                    category: 'petit-fils',
-                    relation: 'Petit-fils de Mame Maodo',
-                    bio: 'Serigne Mansour SY (RTA) était réputé pour ses compositions poétiques en l\'honneur du Prophète Muhammad ﷺ et des maîtres de la Tariqa. Son œuvre poétique est chantée dans tout le Sénégal.',
-                    period: '1325-1410 H / 1907-1990',
+                    title: 'Savant et Poète',
+                    category: 'fils',
+                    relation: 'Fils de Mame Maodo',
+                    bio: 'Un des fils de Maodo, connu pour ses œuvres poétiques et spirituelles. Il a contribué à la diffusion des enseignements de son père.',
+                    period: '1890-1960',
                     origin: 'Tivaouane, Sénégal',
                     works: [
-                        { title: 'Qasâ\'id fi Madhi Rasoul', desc: 'Poèmes à la louange du Prophète', pages: 180 },
-                        { title: 'Diwan Mansour', desc: 'Recueil poétique de Mansour', pages: 220 }
+                        { id: 'w8', title: 'Diwan Mansour', desc: 'Recueil poétique', pages: 180, language: 'Arabe', category: 'Poésie' },
+                        { id: 'w9', title: 'Qasâ\'id Nabawiyya', desc: 'Poèmes prophétiques', pages: 150, language: 'Arabe', category: 'Poésie' }
                     ],
                     color: 'from-rose-500 to-red-600'
                 },
                 {
-                    id: 6,
-                    name: 'Serigne Cheikh Tidiane SY Al Maktoum',
-                    arabicName: 'الشيخ الشيخ التيجاني سي المكتوم',
-                    title: 'Khalife Général actuel',
-                    category: 'petit-fils',
-                    relation: 'Arrière-petit-fils de Mame Maodo',
-                    bio: 'Serigne Cheikh Tidiane SY Al Maktoum, actuel Khalife Général de la famille Sy, perpétue l\'héritage spirituel de ses prédécesseurs et guide la communauté tidiane mondiale.',
-                    period: '1382 H / 1963 - Présent',
+                    id: 5,
+                    name: 'Serigne Abdoul Aziz Sy "Dabakh"',
+                    arabicName: 'الشيخ عبد العزيز سي الدباغ',
+                    title: 'Érudit et Médiateur Social',
+                    category: 'fils',
+                    relation: 'Fils de Mame Maodo',
+                    bio: 'Né en 1904, un érudit très connu. Il a joué un grand rôle comme médiateur social au Sénégal. Savant respecté pour sa connaissance et sa sagesse.',
+                    period: '1322-1417 H / 1904-1997',
                     origin: 'Tivaouane, Sénégal',
                     works: [
-                        { title: 'Mawahibou Rahmân', desc: 'Dons du Miséricordieux', pages: 160 },
-                        { title: 'Nouroull Hidayah', desc: 'Lumière de la guidance', pages: 190 }
+                        { id: 'w10', title: 'Nafhatoul Anwar', desc: 'Souffle des lumières', pages: 250, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w11', title: 'Médiation et Sagesse', desc: 'Principes de médiation sociale', pages: 200, language: 'Arabe', category: 'Enseignement' }
+                    ],
+                    color: 'from-purple-500 to-pink-600'
+                },
+                {
+                    id: 6,
+                    name: 'Serigne Habib Sy',
+                    arabicName: 'الشيخ حبيب سي',
+                    title: 'Savant et Guide Spirituel',
+                    category: 'fils',
+                    relation: 'Fils de Mame Maodo',
+                    bio: 'Figure importante parmi les fils de Maodo dans la généalogie. Il a contribué à l\'enseignement spirituel et à la guidance des disciples.',
+                    period: '1895-1965',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w12', title: 'Guide du disciple', desc: 'Conseils pour les murids', pages: 140, language: 'Arabe', category: 'Guidance' },
+                        { id: 'w13', title: 'La Voie du cœur', desc: 'Spiritualité du cœur', pages: 120, language: 'Arabe', category: 'Spiritualité' }
+                    ],
+                    color: 'from-teal-500 to-cyan-600'
+                },
+                {
+                    id: 7,
+                    name: 'Seydi Ahmeth Sy',
+                    arabicName: 'سيدي أحمد سي',
+                    title: 'Martyr de la Foi',
+                    category: 'fils',
+                    relation: 'Fils de Mame Maodo',
+                    bio: 'Mort jeune à 32 ans, il a été envoyé à la guerre. Sa vie courte mais intense est un témoignage de sacrifice et de dévotion.',
+                    period: '1900-1932',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w14', title: 'Lettres spirituelles', desc: 'Correspondances mystiques', pages: 80, language: 'Arabe', category: 'Spiritualité' }
+                    ],
+                    color: 'from-amber-500 to-orange-600'
+                },
+                // PETITS-FILS DE MAME MAODO (Fils de Serigne Babacar Sy)
+                {
+                    id: 8,
+                    name: 'Serigne Moustapha Sy "Djamil"',
+                    arabicName: 'الشيخ مصطفى سي الجميل',
+                    title: 'Fils aîné de Serigne Babacar Sy',
+                    category: 'petit-fils',
+                    relation: 'Petit-fils de Mame Maodo (fils aîné de Serigne Babacar Sy)',
+                    bio: 'Fils aîné de Serigne Babacar Sy. Il est une référence morale et spirituelle, très respecté dans la communauté tijanie pour sa sagesse et son enseignement.',
+                    period: '1920-2010',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w15', title: 'La Sagesse spirituelle', desc: 'Enseignements moraux et spirituels', pages: 200, language: 'Arabe', category: 'Enseignement' },
+                        { id: 'w16', title: 'Lumière de guidance', desc: 'Guide pour les disciples', pages: 180, language: 'Arabe', category: 'Spiritualité' }
+                    ],
+                    color: 'from-sky-500 to-blue-600'
+                },
+                {
+                    id: 9,
+                    name: 'Cheikh Ahmed Tidiane Sy "Al Maktoum"',
+                    arabicName: 'الشيخ أحمد التيجاني سي المكتوم',
+                    title: 'Mystique et Enseignant',
+                    category: 'petit-fils',
+                    relation: 'Petit-fils de Mame Maodo (fils de Serigne Babacar Sy)',
+                    bio: 'Il a animé des débats, des causeries ; il était très discret, mystique. Connu pour sa profonde spiritualité et son approche contemplative.',
+                    period: '1925-2000',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w17', title: 'Causeries spirituelles', desc: 'Recueil de conférences', pages: 250, language: 'Arabe', category: 'Enseignement' },
+                        { id: 'w18', title: 'Le Chemin mystique', desc: 'Sur la voie soufie', pages: 220, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w19', title: 'Méditations coraniques', desc: 'Réflexions sur le Coran', pages: 190, language: 'Arabe', category: 'Tafsir' }
                     ],
                     color: 'from-indigo-500 to-blue-600'
+                },
+                {
+                    id: 10,
+                    name: 'Serigne Mansour Sy (fils de Babacar)',
+                    arabicName: 'الشيخ منصور سي',
+                    title: 'Khalife et Poète',
+                    category: 'petit-fils',
+                    relation: 'Petit-fils de Mame Maodo (fils de Serigne Babacar Sy)',
+                    bio: 'Fils de Babacar et dans la lignée des khalifes. Il a continué la tradition poétique et spirituelle de la famille.',
+                    period: '1930-2012',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w20', title: 'Poésie mystique', desc: 'Recueil de poèmes soufis', pages: 180, language: 'Arabe', category: 'Poésie' },
+                        { id: 'w21', title: 'Éloges prophétiques', desc: 'Madih du Prophète ﷺ', pages: 150, language: 'Arabe', category: 'Poésie' }
+                    ],
+                    color: 'from-rose-500 to-red-600'
+                },
+                {
+                    id: 11,
+                    name: 'Serigne Abdoul Aziz Sy "Al Amine"',
+                    arabicName: 'الشيخ عبد العزيز سي الأمين',
+                    title: 'Khalife et Guide Spirituel',
+                    category: 'petit-fils',
+                    relation: 'Petit-fils de Mame Maodo (fils de Serigne Babacar Sy)',
+                    bio: 'Un autre fils très important dans la succession des khalifes. Reconnu pour son érudition et sa contribution à la tariqa.',
+                    period: '1935-2015',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w22', title: 'Les Secrets de la Tariqa', desc: 'Enseignements ésotériques', pages: 280, language: 'Arabe', category: 'Soufisme' },
+                        { id: 'w23', title: 'Guide du Khalife', desc: 'Responsabilités spirituelles', pages: 200, language: 'Arabe', category: 'Enseignement' },
+                        { id: 'w24', title: 'Hikam et Sagesses', desc: 'Paroles de sagesse', pages: 160, language: 'Arabe', category: 'Spiritualité' }
+                    ],
+                    color: 'from-purple-500 to-pink-600'
+                },
+                {
+                    id: 12,
+                    name: 'Serigne Pape Malick Sy',
+                    arabicName: 'الشيخ بابا مالك سي',
+                    title: 'Savant et Enseignant',
+                    category: 'petit-fils',
+                    relation: 'Petit-fils de Mame Maodo (fils de Serigne Babacar Sy)',
+                    bio: 'Mentionné parmi les enfants de Babacar, il a contribué à l\'enseignement et à la diffusion des sciences islamiques.',
+                    period: '1940-Présent',
+                    origin: 'Tivaouane, Sénégal',
+                    works: [
+                        { id: 'w25', title: 'Sciences islamiques', desc: 'Compilation d\'enseignements', pages: 240, language: 'Arabe', category: 'Enseignement' },
+                        { id: 'w26', title: 'Fiqh malikite', desc: 'Jurisprudence islamique', pages: 300, language: 'Arabe', category: 'Fiqh' }
+                    ],
+                    color: 'from-teal-500 to-cyan-600'
                 }
             ];
 
@@ -360,11 +478,13 @@
                                             </h4>
                                             <div className="space-y-2">
                                                 {scholar.works.slice(0, 2).map((work, idx) => (
-                                                    <div key={idx} className="flex items-center gap-2 text-xs text-gray-600 bg-gray-50 rounded-lg p-2">
-                                                        <span className="text-yellow-500">✦</span>
-                                                        <span className="flex-1 font-semibold">{work.title}</span>
-                                                        <span className="text-gray-400">{work.pages}p</span>
-                                                    </div>
+                                                    <a key={idx} href={`oeuvre.html?id=${work.id}`}>
+                                                        <div className="flex items-center gap-2 text-xs text-gray-600 bg-gray-50 rounded-lg p-2 hover:bg-yellow-50 hover:border-yellow-300 transition-all cursor-pointer border border-transparent">
+                                                            <span className="text-yellow-500">✦</span>
+                                                            <span className="flex-1 font-semibold hover:text-yellow-600">{work.title}</span>
+                                                            <span className="text-gray-400">{work.pages}p</span>
+                                                        </div>
+                                                    </a>
                                                 ))}
                                                 {scholar.works.length > 2 && (
                                                     <div className="text-xs text-gray-500 text-center">
@@ -376,10 +496,12 @@
 
                                         {/* Action Buttons */}
                                         <div className="flex gap-2">
-                                            <button className={`flex-1 py-3 bg-gradient-to-r ${scholar.color} text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center justify-center gap-2 text-sm`}>
-                                                <Play />
-                                                <span>Explorer</span>
-                                            </button>
+                                            <a href={`oeuvre.html?id=${scholar.works[0].id}`} className="flex-1">
+                                                <button className={`w-full py-3 bg-gradient-to-r ${scholar.color} text-white rounded-xl font-semibold hover:shadow-lg transform hover:scale-105 transition-all flex items-center justify-center gap-2 text-sm`}>
+                                                    <Play />
+                                                    <span>Voir les œuvres</span>
+                                                </button>
+                                            </a>
                                             <button className="px-4 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-yellow-400 hover:text-yellow-600 transform hover:scale-105 transition-all">
                                                 <Download />
                                             </button>
