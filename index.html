@@ -351,7 +351,18 @@
 
             // Hero Section Component
             const HeroSection = () => (
-                <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-50 pt-32">
+                <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
+                    {/* Background Image avec faible opacité */}
+                    <div className="absolute inset-0">
+                        <img
+                            src="images/gal1.jpg"
+                            alt="Background"
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Overlay blanc pour faible opacité */}
+                        <div className="absolute inset-0 bg-white/85"></div>
+                    </div>
+
                     {/* Subtle Islamic Pattern Background */}
                     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
                         <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -531,166 +542,147 @@
 
             // Mission Section Component
             const MissionSection = () => (
-                <div className="py-20 bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50 relative overflow-hidden">
-                    {/* Motif islamique subtil en arrière-plan */}
-                    <div className="absolute inset-0 opacity-10">
-                        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <pattern id="mission-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                                    <circle cx="50" cy="50" r="2" fill="#fbbf24"/>
-                                    <circle cx="0" cy="0" r="1.5" fill="#10b981"/>
-                                    <circle cx="100" cy="0" r="1.5" fill="#10b981"/>
-                                    <circle cx="0" cy="100" r="1.5" fill="#10b981"/>
-                                    <circle cx="100" cy="100" r="1.5" fill="#10b981"/>
-                                    <path d="M50,30 L60,50 L50,70 L40,50 Z" fill="#fbbf24" opacity="0.3"/>
-                                </pattern>
-                            </defs>
-                            <rect width="100%" height="100%" fill="url(#mission-pattern)"/>
-                        </svg>
-                    </div>
-
-                    <div className="max-w-7xl mx-auto px-4 relative z-10">
-                        <div className="text-center mb-16">
-                            <div className="inline-block mb-6">
-                                <div className="text-6xl mb-4 animate-pulse">✨</div>
-                            </div>
-                            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent animate-fade-in">
+                <div className="py-20 bg-white relative overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4">
+                        {/* Header */}
+                        <div className="text-center mb-20">
+                            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
                                 {t.mission.title}
                             </h2>
-                            <div className="flex items-center justify-center gap-3 mb-4">
-                                <div className="h-px w-16 bg-gradient-to-r from-transparent to-orange-500"></div>
-                                <div className="w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
-                                <div className="h-px w-16 bg-gradient-to-l from-transparent to-orange-500"></div>
+                            <div className="flex items-center justify-center gap-3">
+                                <div className="h-1 w-20 bg-gradient-to-r from-transparent to-orange-500"></div>
+                                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                <div className="h-1 w-20 bg-gradient-to-l from-transparent to-orange-500"></div>
                             </div>
                         </div>
 
-                        <div className="max-w-6xl mx-auto space-y-8">
-                            {/* Représentation de la famille */}
-                            <div className="group relative">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                                <div className="relative bg-white rounded-3xl p-8 border-2 border-yellow-400/30 shadow-2xl hover:shadow-yellow-500/20 transition-all">
-                                    <div className="absolute top-4 right-4 text-yellow-400/10 text-6xl">☪</div>
-                                    <div className="flex items-start gap-6">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
-                                                <span className="text-4xl">🕌</span>
-                                            </div>
-                                        </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
-                                                {language === 'fr' ? 'Représentation de la Famille Seydil Hadj Malick Sy' : 'Representing the Family of Seydil Hadj Malick Sy'}
-                                                <span className="text-yellow-600">✦</span>
-                                            </h3>
-                                            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                                                {language === 'fr'
-                                                    ? <>Nous avons l'honneur de représenter la noble famille de <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> au Canada, sous la supervision éclairée et spirituelle de notre guide bien-aimé, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
-                                                    : <>We have the honor of representing the noble family of <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> in Canada, under the enlightened and spiritual supervision of our beloved guide, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
-                                                }
-                                            </p>
-                                            <p className="text-gray-600 text-lg leading-relaxed">
-                                                {language === 'fr'
-                                                    ? 'Cette responsabilité sacrée nous engage à perpétuer l\'héritage spirituel et les enseignements de cette illustre lignée, en maintenant vivante la tradition tijane au cœur du Canada.'
-                                                    : 'This sacred responsibility commits us to perpetuate the spiritual heritage and teachings of this illustrious lineage, keeping the Tijani tradition alive in the heart of Canada.'}
-                                            </p>
-                                        </div>
+                        <div className="space-y-32">
+                            {/* Item 1 - Image à gauche */}
+                            <div className="grid md:grid-cols-2 gap-12 items-center">
+                                <div className="order-2 md:order-1">
+                                    <img
+                                        src="images/gal3.jpg"
+                                        alt="Famille Seydil Hadj Malick Sy"
+                                        className="w-full h-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+                                <div className="order-1 md:order-2">
+                                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full text-sm font-bold mb-6">
+                                        {language === 'fr' ? 'Notre Représentation' : 'Our Representation'}
                                     </div>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                                        {language === 'fr' ? 'Représentation de la Famille Seydil Hadj Malick Sy' : 'Representing the Family of Seydil Hadj Malick Sy'}
+                                    </h3>
+                                    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                                        {language === 'fr'
+                                            ? <>Nous avons l'honneur de représenter la noble famille de <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> au Canada, sous la supervision éclairée et spirituelle de notre guide bien-aimé, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
+                                            : <>We have the honor of representing the noble family of <span className="font-bold text-yellow-700">Cheikh Seydil Hadj Malick Sy (RTA)</span> in Canada, under the enlightened and spiritual supervision of our beloved guide, <span className="font-bold text-orange-700">Serigne Moustapha Sy Al Amine</span>.</>
+                                        }
+                                    </p>
+                                    <p className="text-gray-600 text-lg leading-relaxed">
+                                        {language === 'fr'
+                                            ? 'Cette responsabilité sacrée nous engage à perpétuer l\'héritage spirituel et les enseignements de cette illustre lignée, en maintenant vivante la tradition tijane au cœur du Canada.'
+                                            : 'This sacred responsibility commits us to perpetuate the spiritual heritage and teachings of this illustrious lineage, keeping the Tijani tradition alive in the heart of Canada.'}
+                                    </p>
                                 </div>
                             </div>
 
-                            {/* Valeurs Islamiques */}
-                            <div className="group relative">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                                <div className="relative bg-white rounded-3xl p-8 border-2 border-green-400/30 shadow-2xl hover:shadow-green-500/20 transition-all">
-                                    <div className="absolute top-4 right-4 text-green-400/10 text-6xl">📖</div>
-                                    <div className="flex items-start gap-6">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
-                                                <span className="text-4xl">📖</span>
+                            {/* Item 2 - Image à droite */}
+                            <div className="grid md:grid-cols-2 gap-12 items-center">
+                                <div className="order-1">
+                                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-full text-sm font-bold mb-6">
+                                        {language === 'fr' ? 'Nos Valeurs' : 'Our Values'}
+                                    </div>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                                        {language === 'fr' ? 'Partage des Valeurs Islamiques' : 'Sharing Islamic Values'}
+                                    </h3>
+                                    <p className="text-gray-700 text-lg leading-relaxed mb-8">
+                                        {language === 'fr'
+                                            ? 'Notre mission s\'inscrit dans le partage et la transmission des valeurs islamiques authentiques basées sur le Coran et la Sunna du Prophète Muhammad ﷺ, selon la voie soufie tijaniyya.'
+                                            : 'Our mission is rooted in sharing and transmitting authentic Islamic values based on the Quran and the Sunnah of Prophet Muhammad ﷺ, according to the Tijani Sufi path.'}
+                                    </p>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="flex items-center gap-2 text-gray-700">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
                                             </div>
+                                            <span className="font-semibold">{language === 'fr' ? 'Spiritualité' : 'Spirituality'}</span>
                                         </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
-                                                {language === 'fr' ? 'Partage des Valeurs Islamiques' : 'Sharing Islamic Values'}
-                                                <span className="text-green-600">✦</span>
-                                            </h3>
-                                            <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                                                {language === 'fr'
-                                                    ? 'Notre mission s\'inscrit dans le partage et la transmission des valeurs islamiques authentiques basées sur le Coran et la Sunna du Prophète Muhammad ﷺ, selon la voie soufie tijaniyya.'
-                                                    : 'Our mission is rooted in sharing and transmitting authentic Islamic values based on the Quran and the Sunnah of Prophet Muhammad ﷺ, according to the Tijani Sufi path.'}
-                                            </p>
-                                            <div className="grid md:grid-cols-2 gap-4">
-                                                <div className="flex items-center gap-3 bg-gradient-to-br from-yellow-50 to-amber-50 rounded-xl p-4 border-2 border-yellow-400/30 hover:border-yellow-500/50 hover:shadow-md transition-all">
-                                                    <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                                                    </svg>
-                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Spiritualité & Tassawuf' : 'Spirituality & Sufism'}</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 border-2 border-green-400/30 hover:border-green-500/50 hover:shadow-md transition-all">
-                                                    <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                                    </svg>
-                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Fraternité & Solidarité' : 'Brotherhood & Solidarity'}</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-4 border-2 border-blue-400/30 hover:border-blue-500/50 hover:shadow-md transition-all">
-                                                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                                    </svg>
-                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Éducation & Savoir' : 'Education & Knowledge'}</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-4 border-2 border-purple-400/30 hover:border-purple-500/50 hover:shadow-md transition-all">
-                                                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                                                    </svg>
-                                                    <span className="text-gray-800 font-semibold">{language === 'fr' ? 'Pratique & Dévotion' : 'Practice & Devotion'}</span>
-                                                </div>
+                                        <div className="flex items-center gap-2 text-gray-700">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
                                             </div>
+                                            <span className="font-semibold">{language === 'fr' ? 'Fraternité' : 'Brotherhood'}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-gray-700">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <span className="font-semibold">{language === 'fr' ? 'Éducation' : 'Education'}</span>
+                                        </div>
+                                        <div className="flex items-center gap-2 text-gray-700">
+                                            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
+                                                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                                </svg>
+                                            </div>
+                                            <span className="font-semibold">{language === 'fr' ? 'Dévotion' : 'Devotion'}</span>
                                         </div>
                                     </div>
                                 </div>
+                                <div className="order-2">
+                                    <img
+                                        src="images/gal5.jpg"
+                                        alt="Valeurs Islamiques"
+                                        className="w-full h-auto rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
                             </div>
 
-                            {/* Tivaouane */}
-                            <div className="group relative">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                                <div className="relative bg-white rounded-3xl p-8 border-2 border-orange-400/30 shadow-2xl hover:shadow-orange-500/20 transition-all">
-                                    <div className="absolute top-4 right-4 text-orange-400/10 text-6xl">🌍</div>
-                                    <div className="flex items-start gap-6">
-                                        <div className="flex-shrink-0">
-                                            <div className="w-20 h-20 bg-gradient-to-br from-orange-600 to-red-600 rounded-2xl flex items-center justify-center shadow-xl transform group-hover:rotate-6 group-hover:scale-110 transition-transform">
-                                                <span className="text-4xl">🌍</span>
-                                            </div>
-                                        </div>
-                                        <div className="flex-1">
-                                            <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent mb-4 flex items-center gap-2">
-                                                {language === 'fr' ? 'Tivaouane - Notre Ville Spirituelle' : 'Tivaouane - Our Spiritual City'}
-                                                <span className="text-orange-600">✦</span>
-                                            </h3>
-                                            <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                                                {language === 'fr'
-                                                    ? <><span className="font-bold text-orange-700">Tivaouane</span>, située au <span className="font-bold text-orange-700">Sénégal 🇸🇳</span>, est la ville sainte qui abrite le mausolée de Seydil Hadj Malick Sy (RTA) et demeure le cœur spirituel de notre confrérie.</>
-                                                    : <><span className="font-bold text-orange-700">Tivaouane</span>, located in <span className="font-bold text-orange-700">Senegal 🇸🇳</span>, is the holy city that houses the mausoleum of Seydil Hadj Malick Sy (RTA) and remains the spiritual heart of our brotherhood.</>
-                                                }
-                                            </p>
-                                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                                                {language === 'fr'
-                                                    ? 'Cette ville bénie est le centre rayonnant de l\'enseignement tijani en Afrique de l\'Ouest, où des milliers de disciples se rassemblent chaque année pour célébrer le Gamou et renouveler leur engagement spirituel.'
-                                                    : 'This blessed city is the radiant center of Tijani teaching in West Africa, where thousands of disciples gather each year to celebrate the Gamou and renew their spiritual commitment.'}
-                                            </p>
-                                            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-orange-300">
-                                                <div className="flex items-center justify-center gap-3 mb-4">
-                                                    <span className="text-3xl">⭐</span>
-                                                    <h4 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-600 to-orange-600 bg-clip-text text-transparent">
-                                                        {language === 'fr' ? 'Le Lien Canada - Sénégal' : 'The Canada - Senegal Connection'}
-                                                    </h4>
-                                                    <span className="text-3xl">⭐</span>
-                                                </div>
-                                                <p className="text-gray-700 text-center leading-relaxed text-lg">
-                                                    {language === 'fr'
-                                                        ? 'À travers Muqtafina Canada, nous maintenons ce lien sacré entre le Canada et Tivaouane, en perpétuant les enseignements et la baraka de Seydil Hadj Malick Sy sur le sol canadien.'
-                                                        : 'Through Muqtafina Canada, we maintain this sacred link between Canada and Tivaouane, perpetuating the teachings and baraka of Seydil Hadj Malick Sy on Canadian soil.'}
-                                                </p>
-                                            </div>
-                                        </div>
+                            {/* Item 3 - Image à gauche */}
+                            <div className="grid md:grid-cols-2 gap-12 items-center">
+                                <div className="order-2 md:order-1 flex items-center justify-center">
+                                    <img
+                                        src="images/mosquee.jpeg"
+                                        alt="Tivaouane Sénégal"
+                                        className="w-4/5 h-auto object-contain transform hover:scale-110 transition-transform duration-500"
+                                        style={{mixBlendMode: 'multiply'}}
+                                    />
+                                </div>
+                                <div className="order-1 md:order-2">
+                                    <div className="inline-block px-4 py-2 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full text-sm font-bold mb-6">
+                                        {language === 'fr' ? 'Notre Ville Spirituelle' : 'Our Spiritual City'}
+                                    </div>
+                                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                                        {language === 'fr' ? 'Tivaouane - Sénégal' : 'Tivaouane - Senegal'}
+                                    </h3>
+                                    <p className="text-gray-700 text-lg leading-relaxed mb-4">
+                                        {language === 'fr'
+                                            ? <><span className="font-bold text-orange-700">Tivaouane</span>, située au <span className="font-bold text-orange-700">Sénégal 🇸🇳</span>, est la ville sainte qui abrite le mausolée de Seydil Hadj Malick Sy (RTA) et demeure le cœur spirituel de notre confrérie.</>
+                                            : <><span className="font-bold text-orange-700">Tivaouane</span>, located in <span className="font-bold text-orange-700">Senegal 🇸🇳</span>, is the holy city that houses the mausoleum of Seydil Hadj Malick Sy (RTA) and remains the spiritual heart of our brotherhood.</>
+                                        }
+                                    </p>
+                                    <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                                        {language === 'fr'
+                                            ? 'Cette ville bénie est le centre rayonnant de l\'enseignement tijani en Afrique de l\'Ouest, où des milliers de disciples se rassemblent chaque année pour célébrer le Gamou et renouveler leur engagement spirituel.'
+                                            : 'This blessed city is the radiant center of Tijani teaching in West Africa, where thousands of disciples gather each year to celebrate the Gamou and renew their spiritual commitment.'}
+                                    </p>
+                                    <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-6 border-l-4 border-orange-500">
+                                        <h4 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                            <span>⭐</span>
+                                            {language === 'fr' ? 'Le Lien Canada - Sénégal' : 'The Canada - Senegal Connection'}
+                                        </h4>
+                                        <p className="text-gray-700 leading-relaxed">
+                                            {language === 'fr'
+                                                ? 'À travers Muqtafina Canada, nous maintenons ce lien sacré entre le Canada et Tivaouane, en perpétuant les enseignements et la baraka de Seydil Hadj Malick Sy sur le sol canadien.'
+                                                : 'Through Muqtafina Canada, we maintain this sacred link between Canada and Tivaouane, perpetuating the teachings and baraka of Seydil Hadj Malick Sy on Canadian soil.'}
+                                        </p>
                                     </div>
                                 </div>
                             </div>
