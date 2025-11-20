@@ -1357,6 +1357,271 @@
                 </div>
             );
 
+            // Tariqa Tidjanya Section Component
+            const TariqaSection = () => (
+                <div className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-green-700 via-emerald-700 to-green-700 bg-clip-text text-transparent mb-6">
+                                {language === 'fr' ? 'La Tarîqa Tidjanya' : 'The Tijani Path'}
+                            </h2>
+                            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                                {language === 'fr' ? 'La confrérie des lumières' : 'The Brotherhood of Lights'}
+                            </p>
+                        </div>
+
+                        <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                            <div className="prose prose-lg max-w-none">
+                                <p className="text-xl text-gray-700 leading-relaxed mb-6 font-semibold text-center">
+                                    {language === 'fr'
+                                        ? 'La confrérie Tidjane est la confrérie des lumières. Elle n\'est mélangée d\'aucune obscurité.'
+                                        : 'The Tijani brotherhood is the brotherhood of lights. It is not mixed with any darkness.'}
+                                </p>
+
+                                <div className="grid md:grid-cols-3 gap-6 my-8">
+                                    <div className="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 border-l-4 border-yellow-500">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                                            {language === 'fr' ? 'Istighfâr' : 'Seeking Forgiveness'}
+                                        </h3>
+                                        <p className="text-gray-700">{language === 'fr' ? 'La demande de pardon' : 'Asking for forgiveness'}</p>
+                                    </div>
+                                    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-l-4 border-green-500">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                                            {language === 'fr' ? 'Salât' : 'Prayer on the Prophet'}
+                                        </h3>
+                                        <p className="text-gray-700">{language === 'fr' ? 'Prière sur le Prophète ﷺ' : 'Blessings upon the Prophet ﷺ'}</p>
+                                    </div>
+                                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-l-4 border-blue-500">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-3">
+                                            {language === 'fr' ? 'Dhikr' : 'Remembrance'}
+                                        </h3>
+                                        <p className="text-gray-700">{language === 'fr' ? 'L\'invocation d\'Allah' : 'Remembrance of Allah'}</p>
+                                    </div>
+                                </div>
+
+                                <p className="text-gray-700 leading-relaxed mb-4">
+                                    {language === 'fr'
+                                        ? 'La Tarîqa Tidjanya est la confrérie du dhikr et de la revivification des mosquées, basée sur la Sunna du Prophète Muhammad ﷺ. Elle intègre la connaissance islamique avec la pratique religieuse, et valorise l\'honnêteté et la piété.'
+                                        : 'The Tarîqa Tidjanya is the brotherhood of dhikr and mosque revitalization, based on the Sunnah of Prophet Muhammad ﷺ. It integrates Islamic knowledge with religious practice, and values honesty and piety.'}
+                                </p>
+
+                                <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 mt-8 border-2 border-green-200">
+                                    <h4 className="text-lg font-bold text-gray-900 mb-3">
+                                        {language === 'fr' ? 'Étymologie' : 'Etymology'}
+                                    </h4>
+                                    <p className="text-gray-700">
+                                        {language === 'fr'
+                                            ? 'Le terme "Tidjâniyya" provient de Tadjâna, un nom de village. Le suffixe "iyya" indique l\'origine ou l\'appartenance en arabe, similaire à la façon dont "Sénégal" devient "Sénégaliyya" (Sénégalais).'
+                                            : 'The term "Tidjâniyya" originates from Tadjâna, a village name. The suffix "iyya" indicates origin or belonging in Arabic, similar to how "Senegal" becomes "Sénégaliyya" (Senegalese).'}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Zikrs Section Component
+            const ZikrsSection = () => (
+                <div className="py-20 bg-white">
+                    <div className="max-w-7xl mx-auto px-4">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-700 via-pink-700 to-purple-700 bg-clip-text text-transparent mb-6">
+                                {language === 'fr' ? 'Les Zikrs' : 'The Dhikrs'}
+                            </h2>
+                        </div>
+
+                        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+                            {/* Zikrs Obligatoires */}
+                            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl shadow-2xl p-8 border-2 border-purple-200">
+                                <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                                    {language === 'fr' ? 'Les Zikrs Obligatoires' : 'Obligatory Dhikrs'}
+                                </h3>
+
+                                <div className="space-y-6">
+                                    <div className="bg-white rounded-2xl p-6 shadow-md">
+                                        <h4 className="text-xl font-bold text-purple-700 mb-4">La Wazifa</h4>
+                                        <p className="text-gray-600 mb-4">{language === 'fr' ? 'Quatre récitations quotidiennes (matin et/ou soir):' : 'Four daily recitations (morning and/or evening):'}</p>
+                                        <ul className="space-y-2 text-gray-700">
+                                            <li>• Istighfâr (30 fois)</li>
+                                            <li>• Salât al-Fâtih (50 fois)</li>
+                                            <li>• La ilaha illa Allah (100 fois)</li>
+                                            <li>• Jawharat al-Kamâl (12 fois)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="bg-white rounded-2xl p-6 shadow-md">
+                                        <h4 className="text-xl font-bold text-purple-700 mb-4">Le Lâzime</h4>
+                                        <p className="text-gray-600 mb-4">{language === 'fr' ? 'Deux fois par jour (après Subh et Asr):' : 'Twice daily (after Fajr and Asr):'}</p>
+                                        <ul className="space-y-2 text-gray-700">
+                                            <li>• Istighfâr (100 fois)</li>
+                                            <li>• Salât al-Fâtih (100 fois)</li>
+                                            <li>• La ilaha illa Allah (100 fois)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div className="bg-white rounded-2xl p-6 shadow-md">
+                                        <h4 className="text-xl font-bold text-purple-700 mb-4">Hadaratoul Djoumou'a</h4>
+                                        <p className="text-gray-600 mb-4">{language === 'fr' ? 'Le vendredi (entre Asr et Maghreb):' : 'Friday (between Asr and Maghrib):'}</p>
+                                        <p className="text-gray-700">La ilaha illa Allah (1000-1600 fois individuellement, illimité en groupe)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Zikrs Facultatifs */}
+                            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl shadow-2xl p-8 border-2 border-blue-200">
+                                <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                                    {language === 'fr' ? 'Les Zikrs Facultatifs' : 'Optional Dhikrs'}
+                                </h3>
+
+                                <div className="bg-white rounded-2xl p-6 shadow-md mb-6">
+                                    <p className="text-gray-700 leading-relaxed mb-4">
+                                        {language === 'fr'
+                                            ? 'Les litanies facultatives sont les prières que l\'adepte choisit de pratiquer selon ses capacités, servant de moyen de se rapprocher d\'Allah (SWT).'
+                                            : 'Optional litanies are prayers that the disciple chooses to practice according to their capacities, serving as a means to draw closer to Allah (SWT).'}
+                                    </p>
+                                </div>
+
+                                <div className="bg-yellow-50 rounded-2xl p-6 border-2 border-yellow-300 mb-6">
+                                    <h4 className="text-xl font-bold text-yellow-800 mb-3 flex items-center gap-2">
+                                        <span>⚠️</span>
+                                        {language === 'fr' ? 'Autorisation Requise' : 'Authorization Required'}
+                                    </h4>
+                                    <p className="text-gray-700">
+                                        {language === 'fr'
+                                            ? 'Avant de commencer ces pratiques volontaires, les pratiquants doivent obtenir la permission d\'un Mouqaddam légitime de la Tarîqa.'
+                                            : 'Before beginning these voluntary practices, practitioners must obtain permission from a legitimate Mouqaddam of the Tarîqa.'}
+                                    </p>
+                                </div>
+
+                                <div className="bg-green-50 rounded-2xl p-6 border-2 border-green-300">
+                                    <h4 className="text-xl font-bold text-green-800 mb-3 flex items-center gap-2">
+                                        <span>✓</span>
+                                        {language === 'fr' ? 'Régularité' : 'Consistency'}
+                                    </h4>
+                                    <p className="text-gray-700">
+                                        {language === 'fr'
+                                            ? 'Une fois approuvés, les disciples doivent pratiquer ces litanies régulièrement et de manière cohérente.'
+                                            : 'Once approved, followers should practice these litanies regularly and consistently.'}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+
+            // Biographies Section Component
+            const BiographiesSection = () => {
+                const [selectedScholar, setSelectedScholar] = React.useState(null);
+
+                const scholars = [
+                    {
+                        id: 1,
+                        name: 'Cheikh Ahmed Tidjane Chérif',
+                        title: language === 'fr' ? 'Fondateur de la Tarîqa Tidjanya' : 'Founder of the Tijani Path',
+                        dates: '1150-1230 H (1730-1810 CE)',
+                        image: 'images/cat.png',
+                        bio: language === 'fr'
+                            ? 'Né en 1150 H (1730 CE) à Aynou Madi, Algérie, Cheikh Ahmad Tijani est descendant du Prophète Muhammad ﷺ. Il a mémorisé le Coran à l\'âge de sept ans et est devenu un érudit distingué en jurisprudence islamique, grammaire arabe, rhétorique et théologie. Il s\'est marié deux fois et est décédé à Fès le 17 Shawal 1230 H (1810 CE) à l\'âge de quatre-vingts ans, après avoir accompli la prière de l\'aube.'
+                            : 'Born in 1150 H (1730 CE) in Aynou Madi, Algeria, Cheikh Ahmad Tijani is a descendant of Prophet Muhammad ﷺ. He memorized the Quran at age seven and became a distinguished scholar in Islamic jurisprudence, Arabic grammar, rhetoric, and theology. He married twice and died in Fez on 17 Shawal 1230 H (1810 CE) at age eighty, after performing dawn prayers.'
+                    },
+                    {
+                        id: 2,
+                        name: 'El Hadji Malick Sy',
+                        title: language === 'fr' ? 'Khalife de la Tijaniya au Sénégal' : 'Khalife of Tijaniya in Senegal',
+                        dates: '1855-1922',
+                        image: 'images/maodo.jpeg',
+                        bio: language === 'fr'
+                            ? 'Né vers 1855 à Gaé près de Dagana, Sénégal, fils de Sidy Ousmane Sy et Sokhna Fatoumata Wade Wele. Après avoir mémorisé le Coran, il a passé 25 ans à voyager pour acquérir des connaissances en sciences islamiques et profanes. Il a effectué son premier pèlerinage à La Mecque en 1888 et est revenu comme Khalife de la Tijaniya pour le Sénégal. Il s\'est installé à Tivaouane en 1902 et est décédé le 27 juin 1922. Son mausolée attire de nombreux pèlerins, particulièrement durant le Gamou annuel.'
+                            : 'Born around 1855 in Gaé near Dagana, Senegal, son of Sidy Ousmane Sy and Sokhna Fatoumata Wade Wele. After memorizing the Quran, he spent 25 years traveling to acquire knowledge in Islamic and secular sciences. He performed his first pilgrimage to Mecca in 1888 and returned as Khalife of Tijaniya for Senegal. He settled in Tivaouane in 1902 and died on June 27, 1922. His mausoleum attracts numerous pilgrims, particularly during the annual Gamou.'
+                    },
+                    {
+                        id: 3,
+                        name: 'Serigne Babacar Sy',
+                        title: language === 'fr' ? 'Le Khalife Authentique' : 'The Authentic Khalife',
+                        dates: '1885-1957',
+                        image: 'images/sbs.jpeg',
+                        bio: language === 'fr'
+                            ? 'Serigne Babacar Sy est devenu khalife général en 1922 à l\'âge de 37 ans, suite au décès de son père. Malgré les inquiétudes initiales dues à sa jeunesse, il a rapidement dissipé les doutes par sa direction compétente. Il a créé le système des Dahira comme structure organisationnelle religieuse pour unir les disciples et renforcer la résistance culturelle pendant la période coloniale. Reconnu pour sa dimension spirituelle et son intégrité morale, il a considérablement élargi l\'œuvre de son père.'
+                            : 'Serigne Babacar Sy became general khalife in 1922 at age 37, following his father\'s death. Despite initial concerns about his youth, he quickly dispelled doubts through competent leadership. He created the Dahira system as a religious organizational structure to unite disciples and strengthen cultural resistance during the colonial period. Recognized for his spiritual dimension and moral integrity, he significantly expanded his father\'s work.'
+                    }
+                ];
+
+                return (
+                    <div className="py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+                        <div className="max-w-7xl mx-auto px-4">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-700 via-amber-700 to-orange-700 bg-clip-text text-transparent mb-6">
+                                    {language === 'fr' ? 'Nos Illustres Savants' : 'Our Illustrious Scholars'}
+                                </h2>
+                                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                                    {language === 'fr' ? 'Les grandes figures qui ont illuminé la voie' : 'The great figures who illuminated the path'}
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {scholars.map((scholar) => (
+                                    <div
+                                        key={scholar.id}
+                                        className="bg-white rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 cursor-pointer"
+                                        onClick={() => setSelectedScholar(scholar)}
+                                    >
+                                        <div className="h-64 overflow-hidden">
+                                            <img
+                                                src={scholar.image}
+                                                alt={scholar.name}
+                                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                                            />
+                                        </div>
+                                        <div className="p-6">
+                                            <h3 className="text-2xl font-bold text-gray-900 mb-2">{scholar.name}</h3>
+                                            <p className="text-orange-600 font-semibold mb-2">{scholar.title}</p>
+                                            <p className="text-gray-600 text-sm mb-4">{scholar.dates}</p>
+                                            <button className="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                                                {language === 'fr' ? 'Lire la biographie' : 'Read Biography'}
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Biography Modal */}
+                            {selectedScholar && (
+                                <div
+                                    className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+                                    onClick={() => setSelectedScholar(null)}
+                                >
+                                    <div
+                                        className="bg-white rounded-3xl max-w-4xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative"
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <button
+                                            onClick={() => setSelectedScholar(null)}
+                                            className="absolute top-4 right-4 w-12 h-12 bg-gray-100 hover:bg-red-500 hover:text-white rounded-full flex items-center justify-center transition-all"
+                                        >
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                            </svg>
+                                        </button>
+
+                                        <div className="mb-6">
+                                            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{selectedScholar.name}</h3>
+                                            <p className="text-xl text-orange-600 font-semibold mb-2">{selectedScholar.title}</p>
+                                            <p className="text-gray-600">{selectedScholar.dates}</p>
+                                        </div>
+
+                                        <div className="prose prose-lg max-w-none">
+                                            <p className="text-gray-700 leading-relaxed text-lg">{selectedScholar.bio}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                );
+            };
+
             // Contact Section Component
             const ContactSection = () => (
                 <div className="py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 relative overflow-hidden">
@@ -1629,7 +1894,16 @@
                     <div id="donate">
                         <DonateSection />
                     </div>
-                    
+
+                    {/* Tariqa Tidjanya Section */}
+                    <TariqaSection />
+
+                    {/* Zikrs Section */}
+                    <ZikrsSection />
+
+                    {/* Biographies Section */}
+                    <BiographiesSection />
+
                     {/* Contact Section */}
                     <div id="contact">
                         <ContactSection />
