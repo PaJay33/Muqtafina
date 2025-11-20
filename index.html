@@ -317,36 +317,37 @@
 
             // Navigation Component
             const Navigation = () => (
-                <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex items-center justify-between h-20">
+                <nav className="fixed top-0 left-0 right-0 z-50 bg-white/98 backdrop-blur-md shadow-lg border-b-2 border-emerald-100">
+                    <div className="max-w-7xl mx-auto px-4 py-5">
+                        <div className="flex items-center justify-between">
                             {/* Logo */}
-                            <div className="flex items-center">
-                                <img 
-                                    src="images/muq1.jpg" 
-                                    alt="Muqtafina Logo" 
-                                    className="w-14 h-14"
-                                />
-                                <div className="ml-3">
-                                    <div className="text-xl font-bold text-gray-800">Muqtafina CN</div>
-                                    <div className="text-xs text-green-700 font-arabic">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
+                            <div className="flex items-center gap-4 group">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-emerald-400 rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                                    <img
+                                        src="images/muq1.jpg"
+                                        alt="Muqtafina Logo"
+                                        className="relative w-14 h-14 rounded-full border-2 border-emerald-200 shadow-lg"
+                                    />
+                                </div>
+                                <div>
+                                    <div className="font-bold text-lg text-gray-900 group-hover:text-emerald-700 transition-colors">Muqtafina Canada</div>
+                                    <div className="text-sm text-emerald-700 font-arabic leading-relaxed">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
                                 </div>
                             </div>
 
                             {/* Navigation Links */}
-                            <div className="flex items-center space-x-6">
-
+                            <div className="flex items-center space-x-4">
                                 {/* Language Switcher */}
                                 <div className="flex items-center space-x-2">
                                     <Globe />
                                     <select
                                         value={language}
                                         onChange={(e) => setLanguage(e.target.value)}
-                                        className="text-sm border-2 border-gray-200 bg-white px-3 py-2 rounded-lg cursor-pointer focus:outline-none focus:border-yellow-500"
+                                        className="text-sm border-2 border-emerald-200 bg-white px-3 py-2 rounded-lg cursor-pointer focus:outline-none focus:border-emerald-500 hover:border-emerald-400 transition-colors"
                                     >
                                         <option value="fr">Français</option>
                                         <option value="en">English</option>
-
                                     </select>
                                 </div>
                             </div>

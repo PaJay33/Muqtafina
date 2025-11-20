@@ -20,6 +20,8 @@
 
         .font-arabic {
             font-family: 'Amiri', serif;
+            direction: rtl;
+            text-align: center;
         }
 
         @keyframes fadeIn {
@@ -33,8 +35,19 @@
             }
         }
 
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
         .animate-fade-in {
             animation: fadeIn 1s ease-out;
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
         }
 
         html {
@@ -44,88 +57,154 @@
         .progress-ring {
             transition: stroke-dashoffset 0.5s ease;
         }
+
+        /* Islamic Pattern Background */
+        .islamic-pattern {
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(16, 185, 129, 0.03) 10px, rgba(16, 185, 129, 0.03) 20px),
+                repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(16, 185, 129, 0.03) 10px, rgba(16, 185, 129, 0.03) 20px);
+        }
+
+        /* Elegant Gold Accent */
+        .gold-accent {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Spiritual Glow */
+        .spiritual-glow {
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.1), 0 0 80px rgba(16, 185, 129, 0.05);
+        }
+
+        /* Card Elevation */
+        .card-elevated {
+            box-shadow:
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                0 0 0 1px rgba(16, 185, 129, 0.1);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 islamic-pattern">
 
     <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+    <header class="bg-white/98 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b-2 border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 py-5">
             <div class="flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <img src="images/muq1.jpg" alt="Muqtafina Logo" class="w-12 h-12 rounded-full">
+                <a href="index.html" class="flex items-center gap-4 group">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-emerald-400 rounded-full blur-md opacity-30 group-hover:opacity-50 transition-opacity"></div>
+                        <img src="images/muq1.jpg" alt="Muqtafina Logo" class="relative w-14 h-14 rounded-full border-2 border-emerald-200 shadow-lg">
+                    </div>
                     <div>
-                        <div class="font-bold text-gray-900 group-hover:text-purple-600 transition-colors">Muqtafina Canada</div>
-                        <div class="text-xs text-gray-600 font-arabic">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
+                        <div class="font-bold text-lg text-gray-900 group-hover:text-emerald-700 transition-colors">Muqtafina Canada</div>
+                        <div class="text-sm text-emerald-700 font-arabic leading-relaxed">بِآثَارِ الآبَاءِ وَالأَجْدَادِ</div>
                     </div>
                 </a>
-                <a href="index.html" class="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-full font-semibold transition-all flex items-center gap-2">
+                <a href="index.html" class="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl font-semibold transition-all flex items-center gap-2 shadow-lg hover:shadow-xl">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
                     </svg>
-                    <span>Retour</span>
+                    <span>Retour à l'accueil</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="py-20 relative overflow-hidden bg-gradient-to-br from-slate-50 via-gray-50 to-stone-50">
-        <!-- Subtle Islamic Pattern Background -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
+    <section class="py-24 relative overflow-hidden bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30">
+        <!-- Decorative Islamic Geometric Pattern -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.02]">
             <svg class="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
                 <defs>
-                    <pattern id="islamic-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-                        <circle cx="50" cy="50" r="2" fill="#1e293b"/>
-                        <circle cx="0" cy="0" r="2" fill="#1e293b"/>
-                        <circle cx="100" cy="0" r="2" fill="#1e293b"/>
-                        <circle cx="0" cy="100" r="2" fill="#1e293b"/>
-                        <circle cx="100" cy="100" r="2" fill="#1e293b"/>
+                    <pattern id="islamic-star" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <path d="M60 10 L70 40 L100 40 L75 58 L85 88 L60 70 L35 88 L45 58 L20 40 L50 40 Z" fill="#10b981" opacity="0.8"/>
+                        <circle cx="60" cy="60" r="3" fill="#10b981"/>
                     </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#islamic-pattern)"/>
+                <rect width="100%" height="100%" fill="url(#islamic-star)"/>
             </svg>
         </div>
 
+        <!-- Elegant Border Accent -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-emerald-600 to-transparent"></div>
+
         <div class="max-w-7xl mx-auto px-4 relative z-10">
-            <!-- Sacred Header -->
+            <!-- Sacred Bismillah Header -->
             <div class="text-center mb-16 animate-fade-in">
-                <!-- Bismillah or Islamic Calligraphy -->
-                <div class="mb-8">
-                    <div class="inline-block px-8 py-4 border-2 border-green-700 rounded-lg bg-white/80 backdrop-blur-sm shadow-lg">
-                        <p class="text-3xl font-arabic text-green-800 mb-2">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
-                        <p class="text-sm text-gray-600 italic">Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux</p>
+                <div class="mb-10">
+                    <div class="inline-block relative">
+                        <!-- Decorative Corner Ornaments -->
+                        <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-emerald-600/30"></div>
+                        <div class="absolute -top-4 -right-4 w-8 h-8 border-t-2 border-r-2 border-emerald-600/30"></div>
+                        <div class="absolute -bottom-4 -left-4 w-8 h-8 border-b-2 border-l-2 border-emerald-600/30"></div>
+                        <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-emerald-600/30"></div>
+
+                        <div class="px-12 py-6 border-2 border-emerald-600/20 rounded-2xl bg-white/95 backdrop-blur-sm shadow-2xl spiritual-glow">
+                            <p class="text-4xl md:text-5xl font-arabic text-emerald-800 mb-3 leading-loose">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+                            <div class="w-32 h-0.5 bg-gradient-to-r from-transparent via-emerald-600 to-transparent mx-auto mb-3"></div>
+                            <p class="text-sm text-gray-700 font-medium">Au nom d'Allah, le Tout Miséricordieux, le Très Miséricordieux</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Badge discret -->
-                <div class="inline-flex items-center gap-3 px-6 py-2 bg-green-700 text-white rounded-md font-semibold text-sm mb-8 shadow-md">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <!-- Badge Élégant -->
+                <div class="inline-flex items-center gap-3 px-8 py-3 bg-gradient-to-r from-emerald-700 to-teal-700 text-white rounded-full font-bold text-sm mb-10 shadow-xl card-elevated">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
-                    <span>PROJET D'ACQUISITION</span>
+                    <span class="tracking-wide">PROJET D'ACQUISITION • مَشْرُوع الاِقْتِنَاء</span>
                 </div>
 
-                <!-- Title - More Dignified -->
+                <!-- Title - Plus Spirituel et Élégant -->
                 <div class="max-w-5xl mx-auto">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                        Complexe Seydil Hadj Malick Sy
+                    <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                        <span class="bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                            Complexe Seydil Hadj Malick Sy
+                        </span>
                     </h1>
-                    <div class="w-24 h-1 bg-gradient-to-r from-transparent via-green-700 to-transparent mx-auto mb-6"></div>
-                    <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-serif">
-                        Projet d'acquisition d'une maison pour établir le siège permanent du Dahira Muqtafina Canada
+
+                    <!-- Decorative Divider -->
+                    <div class="flex items-center justify-center gap-3 mb-8">
+                        <div class="w-12 h-0.5 bg-gradient-to-r from-transparent to-emerald-600"></div>
+                        <div class="w-3 h-3 rotate-45 border-2 border-emerald-600"></div>
+                        <div class="w-24 h-0.5 bg-emerald-600"></div>
+                        <div class="w-3 h-3 rotate-45 border-2 border-emerald-600"></div>
+                        <div class="w-12 h-0.5 bg-gradient-to-l from-transparent to-emerald-600"></div>
+                    </div>
+
+                    <p class="text-2xl md:text-3xl text-gray-800 leading-relaxed font-medium mb-4">
+                        Projet d'acquisition d'une maison pour établir le siège permanent
+                    </p>
+                    <p class="text-xl text-emerald-700 font-semibold">
+                        Dahira Muqtafina Canada
                     </p>
 
                     <!-- Spiritual Quote -->
-                    <div class="mt-10 max-w-3xl mx-auto">
-                        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-l-4 border-green-700 rounded-r-lg p-6 shadow-md">
-                            <div class="flex items-start gap-4">
-                                <div class="text-4xl text-green-700 font-serif">"</div>
-                                <div class="flex-1">
-                                    <p class="text-gray-800 italic font-serif leading-relaxed mb-2">
-                                        Les mosquées sont les maisons d'Allah sur terre, et celui qui construit une mosquée, Allah lui construira une maison au Paradis.
-                                    </p>
-                                    <p class="text-sm text-green-800 font-semibold">— Hadith du Prophète Muhammad ﷺ</p>
+                    <div class="mt-12 max-w-3xl mx-auto">
+                        <div class="relative">
+                            <!-- Decorative Corners -->
+                            <div class="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-emerald-600/40"></div>
+                            <div class="absolute -top-2 -right-2 w-6 h-6 border-t-2 border-r-2 border-emerald-600/40"></div>
+                            <div class="absolute -bottom-2 -left-2 w-6 h-6 border-b-2 border-l-2 border-emerald-600/40"></div>
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-emerald-600/40"></div>
+
+                            <div class="bg-white border-2 border-emerald-100 rounded-2xl p-8 shadow-xl spiritual-glow">
+                                <div class="flex items-start gap-4">
+                                    <svg class="w-8 h-8 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                    <div class="flex-1">
+                                        <p class="text-lg md:text-xl text-gray-800 font-medium leading-relaxed mb-4 italic">
+                                            Les mosquées sont les maisons d'Allah sur terre, et celui qui construit une mosquée, Allah lui construira une maison au Paradis.
+                                        </p>
+                                        <div class="flex items-center gap-2">
+                                            <div class="w-12 h-0.5 bg-emerald-600"></div>
+                                            <p class="text-sm text-emerald-800 font-bold">Hadith du Prophète Muhammad ﷺ</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -133,10 +212,10 @@
                 </div>
             </div>
 
-            <!-- Hero Card with Real House Image -->
-            <div class="relative group max-w-5xl mx-auto">
-                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
-                <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-white">
+            <!-- Hero Card with Real House Image - Design Spirituel -->
+            <div class="relative group max-w-5xl mx-auto mt-16">
+                <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-green-500 rounded-3xl blur-xl opacity-25 group-hover:opacity-35 transition duration-500 spiritual-glow"></div>
+                <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-emerald-50 card-elevated">
                     <!-- Image Container -->
                     <div class="relative aspect-video overflow-hidden">
                         <img
@@ -150,23 +229,21 @@
 
                         <!-- Floating Badges -->
                         <div class="absolute top-6 left-6 flex flex-wrap gap-3">
-                            <div class="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-xl border-2 border-purple-200 flex items-center gap-2">
+                            <div class="px-4 py-2 bg-white/95 backdrop-blur-sm rounded-full shadow-xl border-2 border-emerald-200 flex items-center gap-2">
                                 <span class="text-xl">🏠</span>
                                 <span class="font-bold text-gray-900">Futur Siège</span>
                             </div>
-                            <div class="px-4 py-2 bg-green-500 text-white rounded-full shadow-xl font-bold flex items-center gap-2">
+                            <div class="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-full shadow-xl font-bold flex items-center gap-2">
                                 <span>✓</span>
                                 <span>Projet en Cours</span>
                             </div>
                         </div>
 
-                        
-
-                        <!-- Corner Decorations -->
-                        <div class="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-yellow-400"></div>
-                        <div class="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-yellow-400"></div>
-                        <div class="absolute bottom-0 left-0 w-20 h-20 border-b-4 border-l-4 border-yellow-400"></div>
-                        <div class="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-yellow-400"></div>
+                        <!-- Corner Decorations with Gold Accent -->
+                        <div class="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-yellow-500 opacity-60"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 border-t-4 border-r-4 border-yellow-500 opacity-60"></div>
+                        <div class="absolute bottom-0 left-0 w-20 h-20 border-b-4 border-l-4 border-yellow-500 opacity-60"></div>
+                        <div class="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-yellow-500 opacity-60"></div>
                     </div>
                 </div>
             </div>
@@ -174,20 +251,28 @@
     </section>
 
     <!-- Notre Mission -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gradient-to-br from-white via-emerald-50/20 to-teal-50/20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Notre Mission</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-transparent via-green-700 to-transparent mx-auto mb-6"></div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                        Notre Mission
+                    </span>
+                </h2>
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-transparent to-emerald-600"></div>
+                    <div class="w-2 h-2 rotate-45 bg-emerald-600"></div>
+                    <div class="w-16 h-0.5 bg-gradient-to-l from-transparent to-emerald-600"></div>
+                </div>
             </div>
 
             <div class="max-w-5xl mx-auto space-y-8">
                 <!-- Représentation de la famille -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-l-4 border-green-700 shadow-lg">
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border-l-4 border-emerald-600 shadow-lg card-elevated">
                     <div class="flex items-start gap-4">
-                        <div class="text-5xl">🕌</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">🕌</div>
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Représentation de la Famille Seydil Hadj Malick Sy</h3>
+                            <h3 class="text-2xl font-bold text-emerald-900 mb-4">Représentation de la Famille Seydil Hadj Malick Sy</h3>
                             <p class="text-gray-700 text-lg leading-relaxed mb-4">
                                 Nous avons l'honneur de représenter la noble famille de <span class="font-bold text-green-800">Cheikh Seydil Hadj Malick Sy (RTA)</span> au Canada, sous la supervision éclairée et spirituelle de notre guide bien-aimé, <span class="font-bold text-green-800">Serigne Moustapha Sy Al Amine</span>.
                             </p>
@@ -199,11 +284,11 @@
                 </div>
 
                 <!-- Valeurs Islamiques -->
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-l-4 border-blue-700 shadow-lg">
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 border-l-4 border-teal-600 shadow-lg card-elevated">
                     <div class="flex items-start gap-4">
-                        <div class="text-5xl">📖</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">📖</div>
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Partage des Valeurs Islamiques</h3>
+                            <h3 class="text-2xl font-bold text-teal-900 mb-4">Partage des Valeurs Islamiques</h3>
                             <p class="text-gray-700 text-lg leading-relaxed mb-4">
                                 Notre mission s'inscrit dans le partage et la transmission des valeurs islamiques authentiques basées sur le Coran et la Sunna du Prophète Muhammad ﷺ, selon la voie soufie tijaniyya.
                             </p>
@@ -230,11 +315,11 @@
                 </div>
 
                 <!-- Tivaouane - Ville Sainte -->
-                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border-l-4 border-orange-600 shadow-lg">
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border-l-4 border-amber-600 shadow-lg card-elevated">
                     <div class="flex items-start gap-4">
-                        <div class="text-5xl">🌍</div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-amber-600 to-orange-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">🌍</div>
                         <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Tivaouane - Notre Ville Spirituelle</h3>
+                            <h3 class="text-2xl font-bold text-amber-900 mb-4">Tivaouane - Notre Ville Spirituelle</h3>
                             <p class="text-gray-700 text-lg leading-relaxed mb-4">
                                 <span class="font-bold text-orange-800">Tivaouane</span>, située au <span class="font-bold">Sénégal 🇸🇳</span>, est la ville sainte qui abrite le mausolée de Seydil Hadj Malick Sy (RTA) et demeure le cœur spirituel de notre confrérie.
                             </p>
@@ -259,36 +344,45 @@
     </section>
 
     <!-- Vision & Objectifs -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-slate-50">
+    <section class="py-20 bg-gradient-to-br from-white via-teal-50/20 to-emerald-50/20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Notre Vision</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                        Notre Vision
+                    </span>
+                </h2>
+                <div class="flex items-center justify-center gap-2 mb-6">
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-transparent to-emerald-600"></div>
+                    <div class="w-2 h-2 rotate-45 bg-emerald-600"></div>
+                    <div class="w-16 h-0.5 bg-gradient-to-l from-transparent to-emerald-600"></div>
+                </div>
+                <p class="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
                     Créer un espace permanent dédié à la spiritualité, l'éducation et le rassemblement de notre communauté
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border-2 border-purple-200 transform hover:scale-105 transition-all">
-                    <div class="text-6xl mb-4">🕌</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Centre Spirituel</h3>
-                    <p class="text-gray-700">
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 border-2 border-emerald-200 transform hover:scale-105 transition-all shadow-lg hover:shadow-xl card-elevated">
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto shadow-lg">🕌</div>
+                    <h3 class="text-2xl font-bold text-emerald-900 mb-4 text-center">Centre Spirituel</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
                         Un lieu de prière, de dhikr et de recueillement pour renforcer notre lien avec Allah et suivre la voie de Seydil Hadj Malick Sy (RTA)
                     </p>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 border-2 border-blue-200 transform hover:scale-105 transition-all">
-                    <div class="text-6xl mb-4">📚</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Centre d'Éducation</h3>
-                    <p class="text-gray-700">
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8 border-2 border-teal-200 transform hover:scale-105 transition-all shadow-lg hover:shadow-xl card-elevated">
+                    <div class="w-20 h-20 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto shadow-lg">📚</div>
+                    <h3 class="text-2xl font-bold text-teal-900 mb-4 text-center">Centre d'Éducation</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
                         Une bibliothèque et des salles de cours pour l'enseignement du Coran, du Fiqh et des sciences islamiques selon la tradition tijaniyya
                     </p>
                 </div>
 
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200 transform hover:scale-105 transition-all">
-                    <div class="text-6xl mb-4">👥</div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Espace Communautaire</h3>
-                    <p class="text-gray-700">
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border-2 border-green-200 transform hover:scale-105 transition-all shadow-lg hover:shadow-xl card-elevated">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl flex items-center justify-center text-4xl mb-6 mx-auto shadow-lg">👥</div>
+                    <h3 class="text-2xl font-bold text-green-900 mb-4 text-center">Espace Communautaire</h3>
+                    <p class="text-gray-700 text-center leading-relaxed">
                         Des salles polyvalentes pour accueillir nos événements, célébrations et activités communautaires tout au long de l'année
                     </p>
                 </div>
@@ -297,10 +391,19 @@
     </section>
 
     <!-- Project Details -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section class="py-20 bg-gradient-to-br from-gray-50 via-emerald-50/20 to-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Le Projet en Détail</h2>
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                        Le Projet en Détail
+                    </span>
+                </h2>
+                <div class="flex items-center justify-center gap-2">
+                    <div class="w-16 h-0.5 bg-gradient-to-r from-transparent to-emerald-600"></div>
+                    <div class="w-2 h-2 rotate-45 bg-emerald-600"></div>
+                    <div class="w-16 h-0.5 bg-gradient-to-l from-transparent to-emerald-600"></div>
+                </div>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 items-start">
@@ -312,30 +415,30 @@
                     </h3>
 
                     <div class="space-y-6">
-                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-purple-600">
-                            <h4 class="font-bold text-xl text-gray-900 mb-2">🏠 Acquisition Immobilière</h4>
-                            <p class="text-gray-700">
+                        <div class="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 shadow-lg border-l-4 border-emerald-600 card-elevated">
+                            <h4 class="font-bold text-xl text-emerald-900 mb-2">🏠 Acquisition Immobilière</h4>
+                            <p class="text-gray-700 leading-relaxed">
                                 Achat d'une propriété adaptée pouvant accueillir 100-150 personnes, avec plusieurs salles et espaces modulables
                             </p>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-indigo-600">
-                            <h4 class="font-bold text-xl text-gray-900 mb-2">🔧 Aménagements</h4>
-                            <p class="text-gray-700">
+                        <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-6 shadow-lg border-l-4 border-teal-600 card-elevated">
+                            <h4 class="font-bold text-xl text-teal-900 mb-2">🔧 Aménagements</h4>
+                            <p class="text-gray-700 leading-relaxed">
                                 Travaux de rénovation et d'adaptation : salle de prière, bibliothèque, bureaux administratifs, cuisine communautaire
                             </p>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-blue-600">
-                            <h4 class="font-bold text-xl text-gray-900 mb-2">📚 Équipements</h4>
-                            <p class="text-gray-700">
+                        <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 shadow-lg border-l-4 border-green-600 card-elevated">
+                            <h4 class="font-bold text-xl text-green-900 mb-2">📚 Équipements</h4>
+                            <p class="text-gray-700 leading-relaxed">
                                 Mobilier, système audio/vidéo, livres pour la bibliothèque, tapis de prière, équipement de cuisine
                             </p>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-6 shadow-lg border-l-4 border-cyan-600">
-                            <h4 class="font-bold text-xl text-gray-900 mb-2">🌱 Fonds d'Urgence</h4>
-                            <p class="text-gray-700">
+                        <div class="bg-gradient-to-br from-cyan-50 to-white rounded-2xl p-6 shadow-lg border-l-4 border-cyan-600 card-elevated">
+                            <h4 class="font-bold text-xl text-cyan-900 mb-2">🌱 Fonds d'Urgence</h4>
+                            <p class="text-gray-700 leading-relaxed">
                                 Réserve pour l'entretien, les charges et les premiers mois d'opération du complexe
                             </p>
                         </div>
@@ -419,45 +522,55 @@
     </section>
 
     <!-- Donation Progress -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/30">
         <div class="max-w-5xl mx-auto px-4">
-            <div class="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-3xl shadow-2xl p-12 text-white relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-32 -mt-32"></div>
-                <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -ml-24 -mb-24"></div>
+            <div class="bg-gradient-to-br from-emerald-700 via-teal-700 to-green-700 rounded-3xl shadow-2xl p-12 text-white relative overflow-hidden spiritual-glow">
+                <!-- Decorative Islamic Pattern Overlay -->
+                <div class="absolute inset-0 opacity-10">
+                    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <pattern id="progress-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                                <circle cx="40" cy="40" r="20" fill="none" stroke="white" stroke-width="1"/>
+                                <circle cx="40" cy="40" r="30" fill="none" stroke="white" stroke-width="0.5"/>
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#progress-pattern)"/>
+                    </svg>
+                </div>
 
                 <div class="relative z-10">
                     <div class="text-center mb-12">
                         <h2 class="text-4xl md:text-5xl font-bold mb-4">Progression du Projet</h2>
-                        <p class="text-xl text-purple-100">Ensemble, construisons notre maison spirituelle</p>
+                        <p class="text-xl text-emerald-100">Ensemble, construisons notre maison spirituelle</p>
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-8 mb-12">
-                        <div class="text-center">
-                            <div class="text-5xl md:text-6xl font-bold mb-2">0%</div>
-                            <div class="text-purple-200">Collecté</div>
+                        <div class="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                            <div class="text-5xl md:text-6xl font-bold mb-2 gold-accent">0%</div>
+                            <div class="text-emerald-100">Collecté</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-5xl md:text-6xl font-bold mb-2">$0</div>
-                            <div class="text-purple-200">sur l'objectif</div>
+                        <div class="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                            <div class="text-5xl md:text-6xl font-bold mb-2 gold-accent">$0</div>
+                            <div class="text-emerald-100">sur l'objectif</div>
                         </div>
-                        <div class="text-center">
-                            <div class="text-5xl md:text-6xl font-bold mb-2">0</div>
-                            <div class="text-purple-200">Donateurs</div>
+                        <div class="text-center bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                            <div class="text-5xl md:text-6xl font-bold mb-2 gold-accent">0</div>
+                            <div class="text-emerald-100">Donateurs</div>
                         </div>
                     </div>
 
                     <div class="mb-12">
-                        <div class="w-full h-6 bg-white/20 rounded-full overflow-hidden">
-                            <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full" style="width: 0%"></div>
+                        <div class="w-full h-6 bg-white/20 rounded-full overflow-hidden shadow-inner">
+                            <div class="h-full bg-gradient-to-r from-yellow-400 via-yellow-500 to-amber-500 rounded-full shadow-lg" style="width: 0%"></div>
                         </div>
                     </div>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <button onclick="openDonationModal()" class="px-8 py-4 bg-white text-purple-700 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3">
+                        <button onclick="openDonationModal()" class="px-8 py-4 bg-white text-emerald-700 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3">
                             <span class="text-2xl">💝</span>
                             <span>Faire un Don</span>
                         </button>
-                        <button onclick="openShareModal()" class="px-8 py-4 bg-yellow-500 text-gray-900 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3">
+                        <button onclick="openShareModal()" class="px-8 py-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-gray-900 rounded-2xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all flex items-center justify-center gap-3">
                             <span class="text-2xl">📤</span>
                             <span>Partager le Projet</span>
                         </button>
@@ -468,30 +581,45 @@
     </section>
 
     <!-- Call to Action -->
-    <section class="py-20 bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
+    <section class="py-20 bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <div class="text-6xl mb-6">🤲</div>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Participez à cette Sadaqah Jariyah
+            <div class="w-24 h-24 bg-gradient-to-br from-emerald-600 to-teal-600 rounded-3xl flex items-center justify-center text-5xl mx-auto mb-8 shadow-xl spiritual-glow">🤲</div>
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">
+                <span class="bg-gradient-to-r from-emerald-800 via-teal-700 to-emerald-800 bg-clip-text text-transparent">
+                    Participez à cette Sadaqah Jariyah
+                </span>
             </h2>
-            <p class="text-xl text-gray-700 mb-8 leading-relaxed">
-                "Quand l'être humain meurt, ses œuvres s'arrêtent sauf trois : une Sadaqah Jariyah (aumône continue), une science dont les gens tirent profit, ou un enfant pieux qui invoque pour lui."
-            </p>
-            <p class="text-lg text-gray-600 font-semibold mb-12">- Hadith du Prophète Muhammad ﷺ</p>
 
-            <div class="bg-white rounded-2xl shadow-2xl p-8 border-2 border-purple-100">
-                <h3 class="text-2xl font-bold text-gray-900 mb-6">Chaque contribution compte</h3>
+            <!-- Hadith Quote -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border-2 border-emerald-200 shadow-xl">
+                    <svg class="w-8 h-8 text-emerald-600 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
+                    <p class="text-xl text-gray-800 mb-6 leading-relaxed italic">
+                        "Quand l'être humain meurt, ses œuvres s'arrêtent sauf trois : une Sadaqah Jariyah (aumône continue), une science dont les gens tirent profit, ou un enfant pieux qui invoque pour lui."
+                    </p>
+                    <div class="flex items-center justify-center gap-2">
+                        <div class="w-12 h-0.5 bg-emerald-600"></div>
+                        <p class="text-base text-emerald-800 font-bold">Hadith du Prophète Muhammad ﷺ</p>
+                        <div class="w-12 h-0.5 bg-emerald-600"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-8 border-2 border-emerald-100 card-elevated">
+                <h3 class="text-2xl font-bold text-emerald-900 mb-8">Chaque contribution compte</h3>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <button class="py-6 px-4 border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all font-bold text-gray-700 hover:text-purple-600 transform hover:scale-105">
+                    <button class="py-6 px-4 border-2 border-emerald-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all font-bold text-gray-700 hover:text-emerald-700 transform hover:scale-105 shadow-md hover:shadow-lg">
                         $50
                     </button>
-                    <button class="py-6 px-4 border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all font-bold text-gray-700 hover:text-purple-600 transform hover:scale-105">
+                    <button class="py-6 px-4 border-2 border-emerald-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all font-bold text-gray-700 hover:text-emerald-700 transform hover:scale-105 shadow-md hover:shadow-lg">
                         $100
                     </button>
-                    <button class="py-6 px-4 border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all font-bold text-gray-700 hover:text-purple-600 transform hover:scale-105">
+                    <button class="py-6 px-4 border-2 border-emerald-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all font-bold text-gray-700 hover:text-emerald-700 transform hover:scale-105 shadow-md hover:shadow-lg">
                         $500
                     </button>
-                    <button class="py-6 px-4 border-2 border-gray-200 rounded-xl hover:border-purple-500 hover:bg-purple-50 transition-all font-bold text-gray-700 hover:text-purple-600 transform hover:scale-105">
+                    <button class="py-6 px-4 border-2 border-emerald-200 rounded-xl hover:border-emerald-500 hover:bg-emerald-50 transition-all font-bold text-gray-700 hover:text-emerald-700 transform hover:scale-105 shadow-md hover:shadow-lg">
                         $1000
                     </button>
                 </div>
@@ -499,14 +627,14 @@
                 <input
                     type="number"
                     placeholder="Montant personnalisé"
-                    class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:border-purple-500 focus:outline-none text-lg mb-6"
+                    class="w-full px-6 py-4 border-2 border-emerald-200 rounded-xl focus:border-emerald-500 focus:outline-none text-lg mb-8 focus:ring-2 focus:ring-emerald-200"
                 />
 
-                <button onclick="openDonationModal()" class="w-full py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all">
+                <button onclick="openDonationModal()" class="w-full py-5 bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-700 hover:via-teal-700 hover:to-green-700 text-white rounded-2xl font-bold text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all">
                     Contribuer au Complexe Seydil Hadj Malick Sy
                 </button>
 
-                <p class="text-sm text-gray-500 mt-6">
+                <p class="text-sm text-gray-600 mt-6 font-semibold">
                     💰 Interac • En personne • Reçu fiscal
                 </p>
             </div>
