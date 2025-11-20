@@ -209,6 +209,7 @@
             const [language, setLanguage] = useState('fr');
             const [prayerTimes, setPrayerTimes] = useState(null);
             const [showDonationModal, setShowDonationModal] = useState(false);
+            const [showAdPopup, setShowAdPopup] = useState(false);
 
             // Initialize Lucide icons after component renders
             useEffect(() => {
@@ -216,6 +217,18 @@
                     window.lucide.createIcons();
                 }
             });
+
+            // Show ad popup on page load
+            useEffect(() => {
+                const hasSeenAd = sessionStorage.getItem('hasSeenAd');
+                if (!hasSeenAd) {
+                    const timer = setTimeout(() => {
+                        setShowAdPopup(true);
+                        sessionStorage.setItem('hasSeenAd', 'true');
+                    }, 1500); // Show after 1.5 seconds
+                    return () => clearTimeout(timer);
+                }
+            }, []);
 
             // Fetch prayer times based on Montreal location
             useEffect(() => {
@@ -1710,6 +1723,84 @@
                 </footer>
             );
 
+            // Ad Popup Component
+            const AdPopup = () => {
+                if (!showAdPopup) return null;
+
+                return (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                        <div className="relative bg-gradient-to-br from-emerald-600 via-teal-600 to-green-600 rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden animate-scale-in">
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setShowAdPopup(false)}
+                                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 backdrop-blur-sm"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+
+                            {/* Content */}
+                            <div className="p-8 md:p-12 text-white text-center">
+                                {/* Icon */}
+                                <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center text-5xl mx-auto mb-6 shadow-xl animate-glow">
+                                    🏠
+                                </div>
+
+                                {/* Title */}
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                    Complexe Seydil Hadj Malick Sy
+                                </h2>
+
+                                <div className="w-24 h-1 bg-white/50 mx-auto mb-6"></div>
+
+                                {/* Description */}
+                                <p className="text-lg md:text-xl mb-6 text-emerald-50 leading-relaxed">
+                                    {language === 'fr'
+                                        ? "Participez à l'acquisition d'une maison permanente pour notre dahira. Chaque contribution compte pour cette Sadaqah Jariyah."
+                                        : "Participate in acquiring a permanent house for our dahira. Every contribution counts for this Sadaqah Jariyah."}
+                                </p>
+
+                                {/* Stats */}
+                                <div className="grid grid-cols-3 gap-4 mb-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+                                    <div>
+                                        <div className="text-3xl font-bold">0%</div>
+                                        <div className="text-sm text-emerald-100">{language === 'fr' ? 'Collecté' : 'Collected'}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-bold">$0</div>
+                                        <div className="text-sm text-emerald-100">{language === 'fr' ? 'Objectif' : 'Goal'}</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-3xl font-bold">0</div>
+                                        <div className="text-sm text-emerald-100">{language === 'fr' ? 'Donateurs' : 'Donors'}</div>
+                                    </div>
+                                </div>
+
+                                {/* Buttons */}
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <a
+                                        href="complexe-malick-sy.html"
+                                        className="px-8 py-4 bg-white text-emerald-700 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all"
+                                    >
+                                        {language === 'fr' ? '📖 En savoir plus' : '📖 Learn More'}
+                                    </a>
+                                    <button
+                                        onClick={() => {
+                                            setShowAdPopup(false);
+                                            setShowDonationModal(true);
+                                        }}
+                                        className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 rounded-xl font-bold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all"
+                                    >
+                                        {language === 'fr' ? '💝 Faire un Don' : '💝 Donate Now'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
             // Donation Modal Component
             const DonationModal = () => {
                 const copyToClipboard = (text) => {
@@ -1932,6 +2023,9 @@
                     
                     {/* Footer */}
                     <Footer />
+
+                    {/* Ad Popup */}
+                    <AdPopup />
 
                     {/* Donation Modal */}
                     <DonationModal />
