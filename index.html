@@ -203,10 +203,12 @@
         const Globe = () => <i data-lucide="globe" className="w-4 h-4"></i>;
         const Play = () => <i data-lucide="play" className="w-5 h-5"></i>;
         const ImageIcon = () => <i data-lucide="image" className="w-4 h-4"></i>;
+        const Copy = () => <i data-lucide="copy" className="w-5 h-5"></i>;
 
         const MuqtafinaWebsite = () => {
             const [language, setLanguage] = useState('fr');
             const [prayerTimes, setPrayerTimes] = useState(null);
+            const [showDonationModal, setShowDonationModal] = useState(false);
 
             // Initialize Lucide icons after component renders
             useEffect(() => {
@@ -1328,12 +1330,15 @@
                                         />
                                     </div>
 
-                                    <button className="w-full py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500 text-white rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all">
+                                    <button
+                                        onClick={() => setShowDonationModal(true)}
+                                        className="w-full py-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500 text-white rounded-xl font-bold shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all"
+                                    >
                                         Faire un don
                                     </button>
 
                                     <p className="text-xs text-gray-500 text-center mt-4">
-                                        🔒 Paiement 100% sécurisé • Reçu fiscal
+                                        💰 Interac • En personne • Reçu fiscal
                                     </p>
                                 </div>
 
@@ -1704,6 +1709,179 @@
                 </footer>
             );
 
+            // Donation Modal Component
+            const DonationModal = () => {
+                const copyToClipboard = (text) => {
+                    navigator.clipboard.writeText(text);
+                    alert(language === 'fr' ? 'Copié dans le presse-papiers!' : 'Copied to clipboard!');
+                };
+
+                if (!showDonationModal) return null;
+
+                return (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setShowDonationModal(false)}>
+                        <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                            {/* Header */}
+                            <div className="sticky top-0 bg-gradient-to-r from-green-600 to-emerald-600 p-6 rounded-t-3xl">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                                            {language === 'fr' ? 'Informations de Don' : 'Donation Information'}
+                                        </h2>
+                                        <p className="text-green-100">
+                                            {language === 'fr' ? 'Choisissez votre méthode de contribution' : 'Choose your contribution method'}
+                                        </p>
+                                    </div>
+                                    <button
+                                        onClick={() => setShowDonationModal(false)}
+                                        className="p-2 hover:bg-white/20 rounded-full transition-colors"
+                                    >
+                                        <X />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Content */}
+                            <div className="p-6 space-y-6">
+                                {/* Interac Transfer */}
+                                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border-2 border-blue-200">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                                            <span className="text-2xl">💳</span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-gray-900">
+                                                {language === 'fr' ? 'Virement Interac' : 'Interac Transfer'}
+                                            </h3>
+                                            <p className="text-sm text-gray-600">
+                                                {language === 'fr' ? 'Transfert électronique rapide et sécurisé' : 'Fast and secure electronic transfer'}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <div className="bg-white rounded-xl p-4">
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <p className="text-sm text-gray-600 mb-1">
+                                                        {language === 'fr' ? 'Adresse courriel' : 'Email address'}
+                                                    </p>
+                                                    <p className="font-mono font-bold text-gray-900">muqtafinacanada@gmail.com</p>
+                                                </div>
+                                                <button
+                                                    onClick={() => copyToClipboard('muqtafinacanada@gmail.com')}
+                                                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                                >
+                                                    <Copy />
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-white rounded-xl p-4">
+                                            <p className="text-sm text-gray-600 mb-1">
+                                                {language === 'fr' ? 'Question de sécurité' : 'Security question'}
+                                            </p>
+                                            <p className="font-medium text-gray-900">
+                                                {language === 'fr' ? 'Muqtafina' : 'Muqtafina'}
+                                            </p>
+                                        </div>
+
+                                        <div className="bg-white rounded-xl p-4">
+                                            <p className="text-sm text-gray-600 mb-1">
+                                                {language === 'fr' ? 'Réponse' : 'Answer'}
+                                            </p>
+                                            <div className="flex items-center justify-between">
+                                                <p className="font-mono font-bold text-gray-900">1922</p>
+                                                <button
+                                                    onClick={() => copyToClipboard('1922')}
+                                                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                                                >
+                                                    <Copy />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* In-Person Donation */}
+                                <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-2 border-purple-200">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
+                                            <span className="text-2xl">🤝</span>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-bold text-gray-900">
+                                                {language === 'fr' ? 'Don en Personne' : 'In-Person Donation'}
+                                            </h3>
+                                            <p className="text-sm text-gray-600">
+                                                {language === 'fr' ? 'Remettez votre don directement' : 'Hand over your donation directly'}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-3">
+                                        <div className="bg-white rounded-xl p-4">
+                                            <p className="text-sm text-gray-600 mb-2">
+                                                {language === 'fr' ? 'Contactez un membre du bureau' : 'Contact a board member'}
+                                            </p>
+                                            <div className="space-y-2">
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-purple-600">📱</span>
+                                                    <p className="text-gray-900 font-medium">+1 (XXX) XXX-XXXX</p>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-purple-600">📧</span>
+                                                    <p className="text-gray-900 font-medium">muqtafinacanada@gmail.com</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-white rounded-xl p-4">
+                                            <p className="text-sm text-gray-600 mb-2">
+                                                {language === 'fr' ? 'Lors de nos événements' : 'During our events'}
+                                            </p>
+                                            <p className="text-gray-900">
+                                                {language === 'fr'
+                                                    ? 'Vous pouvez faire votre don lors de nos hadara hebdomadaires ou événements spéciaux'
+                                                    : 'You can make your donation during our weekly hadara or special events'}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Tax Receipt Info */}
+                                <div className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-6 border-2 border-yellow-200">
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <span className="text-3xl">📄</span>
+                                        <h3 className="text-lg font-bold text-gray-900">
+                                            {language === 'fr' ? 'Reçu Fiscal' : 'Tax Receipt'}
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-700 text-sm">
+                                        {language === 'fr'
+                                            ? 'Un reçu fiscal sera émis pour tous les dons de 20$ et plus. Veuillez inclure vos coordonnées complètes avec votre don.'
+                                            : 'A tax receipt will be issued for all donations of $20 and above. Please include your complete contact information with your donation.'}
+                                    </p>
+                                </div>
+
+                                {/* Thank You Message */}
+                                <div className="text-center py-4">
+                                    <p className="text-2xl mb-2">❤️</p>
+                                    <p className="text-gray-700 font-medium">
+                                        {language === 'fr'
+                                            ? 'Que Allah récompense votre générosité'
+                                            : 'May Allah reward your generosity'}
+                                    </p>
+                                    <p className="text-sm text-gray-500 mt-1">
+                                        {language === 'fr' ? 'Jazakum Allahu Khayran' : 'Jazakum Allahu Khayran'}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                );
+            };
+
             // Main Render - All sections on one page
             return (
                 <div className="min-h-screen bg-white">
@@ -1753,6 +1931,9 @@
                     
                     {/* Footer */}
                     <Footer />
+
+                    {/* Donation Modal */}
+                    <DonationModal />
                 </div>
             );
         };
