@@ -822,7 +822,8 @@
                             { title: 'Risalat al-Tijaniyya', desc: 'L\'épître Tijaniyya' }
                         ],
                         badge: 'Pro ESBS',
-                        color: 'from-yellow-400 to-orange-500'
+                        color: 'from-yellow-400 to-orange-500',
+                        image: 'images/cat.png'
                     },
                     {
                         id: 2,
@@ -837,7 +838,8 @@
                             { title: 'Kifâyatou Râghibîn', desc: 'Ce qui suffit aux aspirants' }
                         ],
                         badge: 'Pro ESBS',
-                        color: 'from-green-500 to-emerald-600'
+                        color: 'from-green-500 to-emerald-600',
+                        image: 'images/maodo.jpeg'
                     }
                 ];
 
@@ -851,8 +853,14 @@
 
                         <div className="max-w-7xl mx-auto px-4 relative">
                             <div className="text-center mb-16">
-                                <div className="inline-block mb-4">
-                                    <div className="text-6xl mb-4">📖</div>
+                                {/* Photos des savants en miniature */}
+                                <div className="flex justify-center items-center gap-4 mb-6">
+                                    <div className="w-16 h-16 rounded-full border-3 border-yellow-400 shadow-lg overflow-hidden">
+                                        <img src="images/cat.png" alt="Seydina Cheikh Ahmad Tidjani" className="w-full h-full object-cover"/>
+                                    </div>
+                                    <div className="w-20 h-20 rounded-full border-4 border-emerald-500 shadow-xl overflow-hidden">
+                                        <img src="images/maodo.jpeg" alt="Seydil Hadji Malick SY" className="w-full h-full object-cover"/>
+                                    </div>
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent mb-4">
                                     Bibliothèque des Savants
@@ -880,8 +888,12 @@
                                             {/* Header with badge */}
                                             <div className="flex items-start justify-between mb-6">
                                                 <div className="flex items-center gap-4">
-                                                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${scholar.color} flex items-center justify-center text-4xl shadow-lg group-hover:scale-110 transition-transform`}>
-                                                        📚
+                                                    <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${scholar.color} p-1 shadow-lg group-hover:scale-110 transition-transform`}>
+                                                        <img
+                                                            src={scholar.image}
+                                                            alt={scholar.name}
+                                                            className="w-full h-full object-cover rounded-xl"
+                                                        />
                                                     </div>
                                                     <div>
                                                         <div className="px-4 py-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold rounded-full shadow-md inline-flex items-center gap-2">
